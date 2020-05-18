@@ -1,0 +1,3 @@
+G:/classes/C++/Big Homework/Project-CrystalTower-master/build/CMakeFiles/Project_CrystalTower.dir
+G:/classes/C++/Big Homework/Project-CrystalTower-master/build/CMakeFiles/edit_cache.dir
+G:/classes/C++/Big Homework/Project-CrystalTower-master/build/CMakeFiles/rebuild_cache.dir
