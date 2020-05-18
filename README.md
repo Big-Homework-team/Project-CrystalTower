@@ -1,5 +1,5 @@
 # Project-CrystalTower
-A C++ Big Homework using EasyX
+A C++ Big Homework using EGE(UI lib)
 
 ## Build
 
