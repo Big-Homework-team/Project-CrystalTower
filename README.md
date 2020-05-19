@@ -18,18 +18,17 @@ cmake ..
 ```
 │  .gitignore
 │  CMakeLists.txt
-│  list.txt
 │  README.md
 │
 ├─include
-│  │  ege.h                 // ege图形库
+│  │  ege.h
 │  │  graphics.h
 │  │  
 │  └─ege
 │          button.h
 │          fps.h
 │          label.h
-│          sys_edit.h       // end 
+│          sys_edit.h
 │          
 ├─lib
 │      libgraphics.a
