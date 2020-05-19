@@ -1,7 +1,0 @@
-[
-{
-  "directory": "G:/classes/C++/Big Homework/Project-CrystalTower-master/build",
-  "command": "C:/TDM-GCC-64/bin/g++.exe   @CMakeFiles/Project_CrystalTower.dir/includes_CXX.rsp -g   -std=gnu++11 -o CMakeFiles/Project_CrystalTower.dir/src/main.cpp.obj -c \"G:/classes/C++/Big Homework/Project-CrystalTower-master/src/main.cpp\"",
-  "file": "G:/classes/C++/Big Homework/Project-CrystalTower-master/src/main.cpp"
-}
-]
