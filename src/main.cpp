@@ -1,4 +1,3 @@
-#pragma once
 #include "runGame.h"
 
 
