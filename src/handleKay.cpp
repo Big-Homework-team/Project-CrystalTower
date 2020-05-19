@@ -1,3 +1,4 @@
+#pragma once
 #include "handleKey.h"
 #include "move.h"
 #include <cctype>
