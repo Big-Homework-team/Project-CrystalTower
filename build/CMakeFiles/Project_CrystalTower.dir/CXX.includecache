@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+../include/draw.h
+
 ../include/ege.h
 windows.h
 ../include/windows.h
@@ -16,19 +18,47 @@ cstdio
 ege.h
 ../include/ege.h
 
-G:/classes/C++/Big Homework/Project-CrystalTower-master/src/main.cpp
+../include/handleKey.h
+
+../include/map.h
+
+../include/move.h
+
+../include/runGame.h
+
+../include/theBrave.h
+
+D:/Mizuhara/tool/Project-CrystalTower/src/draw.cpp
 graphics.h
 -
-ctime
--
-cstdlib
--
-cmath
--
-vector
+draw.h
+D:/Mizuhara/tool/Project-CrystalTower/src/draw.h
+map.h
+D:/Mizuhara/tool/Project-CrystalTower/src/map.h
+theBrave.h
+D:/Mizuhara/tool/Project-CrystalTower/src/theBrave.h
+
+D:/Mizuhara/tool/Project-CrystalTower/src/handleKay.cpp
+handleKey.h
+D:/Mizuhara/tool/Project-CrystalTower/src/handleKey.h
+move.h
+D:/Mizuhara/tool/Project-CrystalTower/src/move.h
+cctype
 -
 iostream
 -
-fstream
+
+D:/Mizuhara/tool/Project-CrystalTower/src/move.cpp
+move.h
+D:/Mizuhara/tool/Project-CrystalTower/src/move.h
+
+D:/Mizuhara/tool/Project-CrystalTower/src/runGame.cpp
+graphics.h
 -
+runGame.h
+D:/Mizuhara/tool/Project-CrystalTower/src/runGame.h
+draw.h
+D:/Mizuhara/tool/Project-CrystalTower/src/draw.h
+handleKey.h
+D:/Mizuhara/tool/Project-CrystalTower/src/handleKey.h
 

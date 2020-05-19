@@ -4,7 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "G:/classes/C++/Big Homework/Project-CrystalTower-master/src/main.cpp" "G:/classes/C++/Big Homework/Project-CrystalTower-master/build/CMakeFiles/Project_CrystalTower.dir/src/main.cpp.obj"
+  "D:/Mizuhara/tool/Project-CrystalTower/src/draw.cpp" "D:/Mizuhara/tool/Project-CrystalTower/build/CMakeFiles/Project_CrystalTower.dir/src/draw.cpp.obj"
+  "D:/Mizuhara/tool/Project-CrystalTower/src/handleKay.cpp" "D:/Mizuhara/tool/Project-CrystalTower/build/CMakeFiles/Project_CrystalTower.dir/src/handleKay.cpp.obj"
+  "D:/Mizuhara/tool/Project-CrystalTower/src/main.cpp" "D:/Mizuhara/tool/Project-CrystalTower/build/CMakeFiles/Project_CrystalTower.dir/src/main.cpp.obj"
+  "D:/Mizuhara/tool/Project-CrystalTower/src/move.cpp" "D:/Mizuhara/tool/Project-CrystalTower/build/CMakeFiles/Project_CrystalTower.dir/src/move.cpp.obj"
+  "D:/Mizuhara/tool/Project-CrystalTower/src/runGame.cpp" "D:/Mizuhara/tool/Project-CrystalTower/build/CMakeFiles/Project_CrystalTower.dir/src/runGame.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
