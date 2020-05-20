@@ -5,6 +5,9 @@
 
 void runGame::initialize(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
 {
+	initgraph(1600, 900, 0); // 初始化窗口
+    setbkcolor(BLACK); //窗口底色
+    setcaption("Crystal_Tower"); // 窗口标题
 	draw(aStrongBrave, usefulTools, theBigMap); //绘制图形界面
 }
 
@@ -14,7 +17,7 @@ void runGame::run()
 	tools usefulTools;
 	map theBigMap;
     initialize(aStrongBrave, usefulTools, theBigMap); //图形界面初始化
-	while(1)
+	for(;is_run(); delay_fps(60))
 	{
 		char action = getch();
     	if(action == 27) //ESC 的键码是 27.
