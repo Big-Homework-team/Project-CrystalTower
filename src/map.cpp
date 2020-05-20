@@ -73,21 +73,30 @@ map::map()
                 theMap[floor][x][y] = initialMap[floor][x][y];
 }
 
-bool map::checkPoint(int floor, int x, int y)
+bool map::checkPoint(point position)
 {
+    int floor = position.getFloor();
+    int x = position.getX();
+    int y = position.getY();
     return 0 <= floor && floor < high 
            && 0 <= x && x < length 
            && 0 <= y && y < width;
 }
 
-int map::getPoint(int floor, int x, int y)
+int map::getPoint(point position)
 {
-    if(checkPoint(floor, x, y)) 
+    int floor = position.getFloor();
+    int x = position.getX();
+    int y = position.getY();
+    if(checkPoint(position)) 
         return theMap[floor][x][y];
 }
 
-void map::setPoint(int floor, int x, int y, int val)
+void map::setPoint(point position, int val)
 {
-    if(checkPoint(floor, x, y)) 
+    int floor = position.getFloor();
+    int x = position.getX();
+    int y = position.getY();
+    if(checkPoint(position)) 
         theMap[floor][x][y] = val;
 }

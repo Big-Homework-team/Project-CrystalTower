@@ -12,7 +12,7 @@ void drawMap(theBrave aStrongBrave, map theBigMap) {
     picture pic;
     for(int i = 0; i < 13; i++) {
         for(int j = 0; j < 13; j++) {
-            putimage(i * 32 + OriginX, j * 32 + OriginY, pic.block[theBigMap.getPoint(thePosition.getFloor(), i, j)]);
+            putimage(i * 32 + OriginX, j * 32 + OriginY, pic.block[theBigMap.getPoint(point(thePosition.getFloor(), i, j))]);
         }
     }
     putimage(thePosition.getX() * 32 + OriginX, thePosition.getY() * 32 + OriginY, pic.block[1]);
