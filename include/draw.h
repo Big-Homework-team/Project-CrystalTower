@@ -1,3 +1,6 @@
 #pragma once
+#include "theBrave.h"
+#include "tools.h"
+#include "map.h"
 
-void draw(); //绘制地图与角色数据
+void draw(theBrave aStrongBrave, tools usefulTools, map theBigMap); //绘制地图与角色数据

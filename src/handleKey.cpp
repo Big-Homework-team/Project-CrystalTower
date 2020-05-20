@@ -3,13 +3,8 @@
 #include <cctype>
 
 
-#include <iostream>
-using namespace std;
-//上两行仅用于测试
-
-void handle(char action) //处理按键
+void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap) //处理按键
 {
-    cout << action << endl;
     if(action == 27) //ESC 的键码是 27.
 	{
 		return ; //结束游戏.
