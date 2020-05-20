@@ -1,28 +1,28 @@
 #pragma once
 class theBrave //勇者数据
 {
-    private:
-    int hp, def, atk; 
+private:
+    int healthPoint, defence, attack;
     int x, y, floor;  
     
 
-    public:
+public:
     theBrave() {}
     ~theBrave() {}
     int getx() {return x;}
     int gety() {return y;}
-    int gethp() {return hp;}
-    int getdef() {return def;}
-    int getatk() {return atk;}
-    int getfloor() {return floor;}
+    int getHealthPoint() {return healthPoint;}
+    int getDefence() {return defence;}
+    int getAttack() {return attack;}
+    int getFloor() {return floor;}
 
 
     void setx(int x) {this->x = x;}
     void sety(int y) {this->y = y;}
-    void sethp(int hp) {this->hp = hp;}
-    void setdef(int def) {this->def = def;}
-    void setatk(int atk) {this->atk = atk;}
-    void setfloor(int floor) {this->floor = floor;}
+    void setHealthPoint(int healthPoint) {this->healthPoint = healthPoint;}
+    void setDefence(int defence) {this->defence = defence;}
+    void setAttack(int attack) {this->attack = attack;}
+    void setFloor(int floor) {this->floor = floor;}
 
 };
 
