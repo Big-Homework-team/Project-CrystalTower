@@ -17,6 +17,10 @@ void runGame::run()
 	while(1)
 	{
 		char action = getch();
+    	if(action == 27) //ESC 的键码是 27.
+		{
+			return ; //结束游戏.
+		}
         handle(action, aStrongBrave, usefulTools, theBigMap); //处理按键
 	}
 }
