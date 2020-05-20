@@ -10,9 +10,9 @@ class picture {
             for(int i = 0; i < blockNumber; i++) {
                 block[i] = newimage();
             }
-            getimage(block[0], "static\\img\\space.png");
-            getimage(block[1], "static\\img\\theBrave.png");
-            getimage(block[2], "static\\img\\wall.png");
+            getimage(block[0], "static\\img\\00.png");
+            getimage(block[1], "static\\img\\01.png");
+            getimage(block[2], "static\\img\\02.png");
         }
 
         ~picture() {
