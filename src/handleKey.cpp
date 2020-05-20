@@ -11,5 +11,5 @@ void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBig
 	}
     action = tolower(action); //转换大小写
     if(action == 'a' || action == 'd' || action == 's' || action == 'w')
-        move(action);
+        move(action, aStrongBrave, theBigMap);
 }
