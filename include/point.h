@@ -3,15 +3,15 @@
 class point
 {
 private:
-    int x, y, floor;
+    int floor, x, y;
 public:
     point() {};
-    point(int x, int y, int floor): x(x), y(y), floor(floor) {};
+    point(int floor, int x, int y): floor(floor), x(x), y(y) {};
     ~point() {};
+    int getFloor() {return floor;}
     int getX() {return x;}
     int getY() {return y;}
-    int getFloor() {return floor;}
+    void setFloor(int floor) {this->floor = floor;}
     void setX(int x) {this->x = x;}
     void setY(int y) {this->y = y;}
-    void setFloor(int floor) {this->floor = floor;}
 };

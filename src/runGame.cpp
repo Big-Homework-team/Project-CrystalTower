@@ -5,7 +5,7 @@
 
 void runGame::initialize(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
 {
-	initgraph(1600, 900, 0); // 初始化窗口
+	initgraph(960, 600, 0); // 初始化窗口
     setbkcolor(BLACK); //窗口底色
     setcaption("Crystal_Tower"); // 窗口标题
 	draw(aStrongBrave, usefulTools, theBigMap); //绘制图形界面

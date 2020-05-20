@@ -63,6 +63,8 @@ const int initialMap[high][length][width] =
     2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
 };
 
+#include <iostream>
+using namespace std;
 map::map()
 {
     for(int floor = 0; floor < high; floor ++)
@@ -74,8 +76,8 @@ map::map()
 bool map::checkPoint(int floor, int x, int y)
 {
     return 0 <= floor && floor < high 
-           && 1 <= x && x < length 
-           && 1 <= y && y < width;
+           && 0 <= x && x < length 
+           && 0 <= y && y < width;
 }
 
 int map::getPoint(int floor, int x, int y)

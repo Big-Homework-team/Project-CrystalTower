@@ -12,7 +12,7 @@ theBrave::theBrave()
     healthPoint = initialHealthPoint;
     defence = initialDefence;
     attack = initialAttack;
+    position.setFloor(initialFloor);
     position.setX(initialX);
     position.setY(initialY);
-    position.setFloor(initialFloor);
 }
