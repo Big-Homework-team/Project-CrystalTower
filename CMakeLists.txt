@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 2.8)
 project(Project_CrystalTower)
 
 # 设置编译模式
-set( CMAKE_BUILD_TYPE "Debug" )
+set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fexec-charset=GBK -finput-charset=UTF-8") # 解决编码问题
 set(CMAKE_CXX_STANDARD 11)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
