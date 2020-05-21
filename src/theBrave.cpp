@@ -1,11 +1,11 @@
 #include "theBrave.h"
 
-const int initialHealthPoint = 1000;
+const int initialHealthPoint = 60;
 const int initialDefence = 10;
 const int initialAttack = 10;
 const int initialX = 6;
-const int initialY = 11;
-const int initialFloor = 1;
+const int initialY = 12;
+const int initialFloor = 0;
 
 theBrave::theBrave()
 {
