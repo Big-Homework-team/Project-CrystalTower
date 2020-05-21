@@ -1,7 +1,9 @@
 #pragma once 
 #include "graphics.h"
+#include <string>
+using namespace std;
 
-const int blockNumber = 4;
+const int blockNumber = 5;
 
 class picture {
     public:
@@ -10,9 +12,13 @@ class picture {
             for(int i = 0; i < blockNumber; i++) {
                 block[i] = newimage();
             }
-            getimage(block[0], "static\\img\\00.png");
-            getimage(block[1], "static\\img\\01.png");
-            getimage(block[2], "static\\img\\02.png");
+            for(int i = 0; i < blockNumber; i++) {
+                string name = "";
+                name += char(i / 10 + '0');
+                name += char(i % 10 + '0');
+                string path = "static\\img\\" + name + ".png";
+                getimage(block[i], path.c_str());
+            }
         }
 
         ~picture() {

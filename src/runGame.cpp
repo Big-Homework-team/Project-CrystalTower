@@ -25,5 +25,6 @@ void runGame::run()
 			return ; //结束游戏.
 		}
         handle(action, aStrongBrave, usefulTools, theBigMap); //处理按键
+    	draw(aStrongBrave, usefulTools, theBigMap);
 	}
 }
