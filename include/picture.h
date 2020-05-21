@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-const int blockNumber = 5;
+const int blockNumber = 34;
 
 class picture {
     public:
@@ -20,7 +20,6 @@ class picture {
                 getimage(block[i], path.c_str());
             }
         }
-
         ~picture() {
             for(int i = 0; i < blockNumber; i++) {
                 delimage(block[i]);
