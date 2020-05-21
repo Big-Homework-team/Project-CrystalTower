@@ -10,11 +10,11 @@ class map //地图数据
 {
 private:
     int theMap[high][length][width];
-    bool checkPoint(point position);
 
 public:
     map();
     ~map() {};
+    bool checkPoint(point position);
     int getPoint(point position);
     void setPoint(point position, int val);
 };
