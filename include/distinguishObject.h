@@ -7,7 +7,7 @@
 #include "prop.h"
 #include "equipment.h"
 #include "key.h"
-#include "draft.h"
+#include "tool.h"
 #include "theElderly.h"
 #include "shop.h"
 #include "monster.h"

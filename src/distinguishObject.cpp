@@ -10,7 +10,7 @@ object *distinguishObject(int id)
     else if(id == 15 || id == 16 || id == 17 || id == 18) newObject = new prop;
     else if(id == 19 || id == 20) newObject = new equipment;
     else if(id == 31 || id == 32 || id == 33) newObject = new key;
-    else if(id == 35) newObject = new draft;
+    else if(id == 35 || id == 37 || id == 38) newObject = new tool;
     else if(id == 41) newObject = new theElderly;
     else if(id == 42) newObject = new shop;
     else if(51 <= id && id <= 80) newObject = new monster;
