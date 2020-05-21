@@ -104,6 +104,7 @@ int map::getPoint(point position)
     int y = position.getY();
     if(checkPoint(position)) 
         return theMap[floor][x][y];
+    return 0;
 }
 
 void map::setPoint(point position, int val)
