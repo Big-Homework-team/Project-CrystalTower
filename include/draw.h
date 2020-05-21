@@ -3,6 +3,7 @@
 #include "tools.h"
 #include "map.h"
 #include "picture.h"
+#include "monster.h"
 
 
 const int OriginX = 160;
@@ -12,6 +13,10 @@ void draw(theBrave aStrongBrave, tools usefulTools, map theBigMap, picture pic);
 
 void setBackground(picture pic);
 
-void createFrame();
+void createFrame(picture pic);
 
 void updateInfomation();
+
+void updateInformation(theBrave aStrongBrave, tools usefulTools, picture pic);
+
+void updateMonsterInformation(monster theMonster);

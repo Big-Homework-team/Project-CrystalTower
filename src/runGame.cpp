@@ -2,13 +2,16 @@
 #include "runGame.h"
 #include "draw.h" //绘制地图与角色数据
 #include "handleKey.h" //处理键盘事件
+#include "monster.h"
 
 void runGame::initialize(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, picture &pic)
 {
 	initgraph(736, 416, 0); // 初始化窗口
     setbkcolor(BLACK); //窗口底色
     setcaption("Crystal_Tower"); // 窗口标题
-
+    setfillcolor(DARKGRAY);
+	setfont(-16, 0, "黑体");
+	setbkmode(TRANSPARENT);
 	for(int i = 0; i < blockNumber; i++) {
         pic.block[i] = newimage();
     }
