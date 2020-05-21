@@ -14,7 +14,7 @@ void monster::takeEvent(point destination, theBrave &aStrongBrave, tools &useful
     bigMonster[52].setMoney(2);
 
     bigMonster[53].setHealthPoint(80);
-    bigMonster[53].setAttack(40);
+    bigMonster[53].setAttack(35);
     bigMonster[53].setDefence(5);
     bigMonster[53].setMoney(4);
 
@@ -49,9 +49,14 @@ void monster::takeEvent(point destination, theBrave &aStrongBrave, tools &useful
 
     int time=monsterHealth/attack;
     if(monsterHealth%attack==0) time--;
+
+    if(id == 53) time ++; //小蝙蝠先手
+
     if(time*defence >= healthPoint){
         return ;//没打过
     }
+
+    if(id == 53) healthPoint -= defence; //小蝙蝠先手
 
     while(healthPoint>0 && monsterHealth>0){
         monsterHealth -= attack;
