@@ -2,6 +2,7 @@
 #include "runGame.h"
 #include "draw.h" //绘制地图与角色数据
 #include "handleKey.h" //处理键盘事件
+#include "monster.h"
 
 void runGame::initialize(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, picture &pic)
 {
