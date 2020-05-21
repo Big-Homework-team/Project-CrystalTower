@@ -6,12 +6,15 @@ const int initialAttack = 10;
 const int initialX = 6;
 const int initialY = 12;
 const int initialFloor = 0;
+const int initialTimes = 1;
 
 theBrave::theBrave()
 {
     healthPoint = initialHealthPoint;
     defence = initialDefence;
     attack = initialAttack;
+    times = initialTimes;
+
     position.setFloor(initialFloor);
     position.setX(initialX);
     position.setY(initialY);

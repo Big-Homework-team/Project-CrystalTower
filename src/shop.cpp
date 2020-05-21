@@ -1,5 +1,6 @@
 #include "shop.h"
 #include <graphics.h>
+#include <cmath>
 
 void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
 {
@@ -7,19 +8,20 @@ void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     bar(5 * 32, 9 * 32, 18 * 32, 14 * 32); //绘制矩形作为背景
     setcolor(WHITE);                       //字体颜色
-    setfont(16, 0, "宋体");                //文字高度16像素，宽度自适应，字体类型
+    setfont(16, 0, "黑体");                //文字高度16像素，宽度自适应，字体类型
     setbkmode(TRANSPARENT);                //字体背景色块调为透明
     outtextxy(5 * 32, 9 * 32, "商会老板 罗薇娜：");
-    outtextxy(5 * 32, 9 * 32 + 1 * 16, "亲爱的光之战士,");
-    outtextxy(5 * 32, 9 * 32 + 2 * 16, "您可以通过花费20金币来增强自己。");
-    char action;
-    while (action != 13)
+    outtextxy(5 * 32, 9 * 32 + 2 * 16, "亲爱的光之战士,");
+    outtextxy(5 * 32, 9 * 32 + 3 * 16, "您可以通过花费金币来增强自己。");
+    outtextxy(5 * 32, 9 * 32 + 4 * 16, "第一次需花费20金币，之后每次购买的花费为上次的两倍。");
+    char action = '.';
+    int cost = pow(2, aStrongBrave.getTimes()) * 10;
+    while (action != 32)
     {
         action = getch();
     }
-    if (action == 13)
+    if (action == 32)
     {
-        setfillcolor(DARKGRAY);
         bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
         outtextxy(5 * 32, 9 * 32, "商会老板 罗薇娜：");
         outtextxy(5 * 32, 9 * 32 + 2 * 16, "请输出数字代表选择：");
@@ -33,24 +35,26 @@ void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
         }
         if (action == '1' || action == '2' || action == '3')
         {
-            if (usefulTools.getMoney() >= 20)
+            if (usefulTools.getMoney() >= cost)
             {
                 if (action == '1')
                 {
                     aStrongBrave.setHealthPoint(aStrongBrave.getHealthPoint() + 400);
-                    usefulTools.setMoney(usefulTools.getMoney() - 20);
+                    aStrongBrave.setTimes(aStrongBrave.getTimes() + 1);
+                    usefulTools.setMoney(usefulTools.getMoney() - cost);
                 }
                 if (action == '2')
                 {
                     aStrongBrave.setAttack(aStrongBrave.getAttack() + 3);
-                    usefulTools.setMoney(usefulTools.getMoney() - 20);
+                    aStrongBrave.setTimes(aStrongBrave.getTimes() + 1);
+                    usefulTools.setMoney(usefulTools.getMoney() - cost);
                 }
                 if (action == '3')
                 {
                     aStrongBrave.setDefence(aStrongBrave.getDefence() + 4);
-                    usefulTools.setMoney(usefulTools.getMoney() - 20);
+                    aStrongBrave.setTimes(aStrongBrave.getTimes() + 1);
+                    usefulTools.setMoney(usefulTools.getMoney() - cost);
                 }
-                setfillcolor(DARKGRAY);
                 bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
                 outtextxy(5 * 32, 9 * 32, "商会老板 罗薇娜：");
                 outtextxy(5 * 32, 9 * 32 + 2 * 16, "感谢您的惠顾，");
@@ -58,16 +62,14 @@ void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
             }
             else
             {
-                setfillcolor(DARKGRAY);
                 bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
                 outtextxy(5 * 32, 9 * 32, "商会老板 罗薇娜：");
                 outtextxy(5 * 32, 9 * 32 + 2 * 16, "您的钱还不够进行购买，");
                 outtextxy(5 * 32, 9 * 32 + 3 * 16, "可以考虑通过讨伐魔物赚取金币。");
             }
         }
-        else
+        else if (action == '4')
         {
-            setfillcolor(DARKGRAY);
             bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
             outtextxy(5 * 32, 9 * 32, "商会老板 罗薇娜：");
             outtextxy(5 * 32, 9 * 32 + 2 * 16, "考虑后再进行购买是明智的行为，");
