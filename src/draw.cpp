@@ -92,9 +92,9 @@ void updateInformation(theBrave aStrongBrave, tools usefulTools, picture pic) {
         putimage(592, 176, pic.block[35]);
     if(usefulTools.getMonsterManual()) 
         putimage(624, 176, pic.block[36]); //
-    if(usefulTools.getBoom())
-        putimage(656, 176, pic.block[37]);
     if(usefulTools.getTransmitter())
+        putimage(656, 176, pic.block[37]);
+    if(usefulTools.getBoom())
         putimage(688, 176, pic.block[38]);
 }
 
