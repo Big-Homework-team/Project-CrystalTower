@@ -2,12 +2,12 @@
 class tools //道具数据
 {
 private:
-    int yellowKey, blueKey, redKey, money, weapon, armor, draft, monsterManual, usingDraft;
+    int yellowKey, blueKey, redKey, money, weapon, armor, draft, transmitter, boom, monsterManual, usingDraft;
     
 public:
     tools()
     {
-        yellowKey = blueKey = redKey = money = weapon = armor = draft = monsterManual = usingDraft = 0;
+        yellowKey = blueKey = redKey = money = weapon = armor = draft = transmitter = boom = monsterManual = usingDraft = 0;
     }
     ~tools() {};
     int getYellowKey() {return yellowKey;}
@@ -19,6 +19,8 @@ public:
     int getDraft() {return draft;}
     int getMonsterManual() {return monsterManual;}
     int getUsingDraft() {return usingDraft;}
+    int getTransmitter() {return transmitter;}
+    int getBoom() {return boom;}
     
     void setYellowKey(int yellowKey) {this->yellowKey = yellowKey;}
     void setBlueKey(int blueKey) {this->blueKey = blueKey;}
@@ -29,4 +31,6 @@ public:
     void setDraft(int draft) {this->draft = draft;}
     void setMonsterManual(int monsterManual) {this->monsterManual = monsterManual;}
     void setUsingDraft(int usingDraft) {this->usingDraft = usingDraft;}
+    void setTransmitter(int transmitter) {this->transmitter = transmitter;}
+    void setBoom(int boom) {this->boom = boom;}
 };

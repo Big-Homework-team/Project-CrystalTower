@@ -89,9 +89,13 @@ void updateInformation(theBrave aStrongBrave, tools usefulTools, picture pic) {
     sprintf(s, "%d", usefulTools.getBlueKey());
     outtextxy(670, 104, s); //
     if(usefulTools.getDraft()) 
-        putimage(608, 176, pic.block[35]);
+        putimage(592, 176, pic.block[35]);
     if(usefulTools.getMonsterManual()) 
-        putimage(672, 176, pic.block[36]); //
+        putimage(624, 176, pic.block[36]); //
+    if(usefulTools.getTransmitter())
+        putimage(656, 176, pic.block[37]);
+    if(usefulTools.getBoom())
+        putimage(688, 176, pic.block[38]);
 }
 
 void updateMonsterInformation(monster theMonster, picture pic) {
