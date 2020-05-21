@@ -22,6 +22,34 @@ void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBig
     {
 
     }
+    else if(action == 'i')
+    {
+        if(usefulTools.getTransmitter() == 1)
+        {
+            destination.setX(12 - destination.getX());
+            destination.setY(12 - destination.getY());
+            if(theBigMap.getPoint(destination) == 0) //使用传送器
+            {
+                usefulTools.setTransmitter(0);
+                aStrongBrave.setPosition(destination);
+            }
+        }
+    }
+    else if(action == 'o')
+    {
+        if(usefulTools.getBoom() == 1)
+        {
+            //使用炸弹
+            for(int i = -1; i <= 1; i ++)
+                for(int j = -1; j <= 1; j ++)
+                {
+                    int id = theBigMap.getPoint(point(destination.getFloor(), destination.getX() + i, destination.getY() + j));
+                    if(51 <= id && id <= 80)
+                        theBigMap.setPoint(point(destination.getFloor(), destination.getX() + i, destination.getY() + j), 0);
+                }
+            usefulTools.setBoom(0);
+        }
+    }
     else if(action == 'a' || action == 37 || action == 'd' || action == 39 || action == 'w' || action == 38 || action == 's' || action == 40)
     {
         if(action == 'a' || action == 37) destination.setX(position.getX() - 1);

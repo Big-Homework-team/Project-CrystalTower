@@ -7,7 +7,7 @@ private:
 public:
     tools()
     {
-        yellowKey = blueKey = redKey = money = weapon = armor = draft = monsterManual = usingDraft = 0;
+        yellowKey = blueKey = redKey = money = weapon = armor = draft = transmitter = boom = monsterManual = usingDraft = 0;
     }
     ~tools() {};
     int getYellowKey() {return yellowKey;}
