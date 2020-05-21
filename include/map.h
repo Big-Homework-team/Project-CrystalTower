@@ -1,7 +1,7 @@
 #pragma once
 #include "point.h"
 
-const int high = 4;
+const int high = 6;
 const int length = 13;
 const int width = 13;
 
