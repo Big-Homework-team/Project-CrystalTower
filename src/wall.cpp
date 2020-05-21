@@ -8,4 +8,8 @@ void wall::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
         usefulTools.setUsingDraft(0);
         theBigMap.setPoint(destination, 0);
     }
+    else if(id == 7)
+    {
+        theBigMap.setPoint(destination, 31); //生成黄钥匙
+    }
 }

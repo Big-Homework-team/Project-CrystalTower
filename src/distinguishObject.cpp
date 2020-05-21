@@ -4,7 +4,7 @@ object *distinguishObject(int id)
 {
     //根据 ID 获取对应的类指针
     object *newObject = NULL;
-    if(id == 0) newObject = new space;
+    if(id == 0 || id == 14) newObject = new space;
     else if(id == 3 || id == 4) newObject = new floor;
     else if(id == 10 || id == 11 || id == 12) newObject = new door;
     else if(id == 15 || id == 16 || id == 17 || id == 18) newObject = new prop;

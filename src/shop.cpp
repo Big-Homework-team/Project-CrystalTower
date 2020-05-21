@@ -12,7 +12,7 @@ void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
     outtextxy(5 * 32, 9 * 32, "商会老板 罗薇娜：");
     outtextxy(5 * 32, 9 * 32 + 1 * 16, "亲爱的光之战士,");
     outtextxy(5 * 32, 9 * 32 + 2 * 16, "您可以通过花费20金币来增强自己。");
-    char action;
+    char action = 0;
     while (action != 13)
     {
         action = getch();
