@@ -8,7 +8,9 @@ void runGame::initialize(theBrave &aStrongBrave, tools &usefulTools, map &theBig
 	initgraph(736, 416, 0); // 初始化窗口
     setbkcolor(BLACK); //窗口底色
     setcaption("Crystal_Tower"); // 窗口标题
-
+    setfillcolor(DARKGRAY);
+	setfont(-16, 0, "黑体");
+	setbkmode(TRANSPARENT);
 	for(int i = 0; i < blockNumber; i++) {
         pic.block[i] = newimage();
     }
