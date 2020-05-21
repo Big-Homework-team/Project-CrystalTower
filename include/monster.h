@@ -9,7 +9,7 @@ private:
     int id;
 public:
     virtual void takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap);
-    monster();
+    monster() {};
     ~monster() {};
     point getPosition() {return position;}
     int getHealthPoint() {return healthPoint;}
