@@ -9,6 +9,7 @@ void runGame::initialize(theBrave &aStrongBrave, tools &usefulTools, map &theBig
 	initgraph(736, 416, 0); // 初始化窗口
     setbkcolor(BLACK); //窗口底色
     setcaption("Crystal_Tower"); // 窗口标题
+    setcolor(WHITE);                       //字体颜色
     setfillcolor(DARKGRAY);
 	setfont(-16, 0, "黑体");
 	setbkmode(TRANSPARENT);
