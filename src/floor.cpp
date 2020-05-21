@@ -2,7 +2,9 @@
 
 void floor::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
 {
-    /*if(theBigMap.getPoint(destination) == 3)
+    int id = theBigMap.getPoint(destination);
+    point position = aStrongBrave.getPosition();
+    if(id == 3)
     {
         destination.setFloor(position.getFloor() + 1);
         for(int x = 0; x < 13; x ++)
@@ -14,9 +16,8 @@ void floor::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTo
                     break;
                 }
         aStrongBrave.setPosition(destination);
-        draw(aStrongBrave, usefulTools, theBigMap);
     }
-    else if(theBigMap.getPoint(destination) == 4)
+    else if(id == 4)
     {
         destination.setFloor(position.getFloor() - 1);
         for(int x = 0; x < 13; x ++)
@@ -28,7 +29,5 @@ void floor::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTo
                     break;
                 }
         aStrongBrave.setPosition(destination);
-        draw(aStrongBrave, usefulTools, theBigMap);
-    }*/
-    return ;
+    }
 }
