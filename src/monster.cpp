@@ -6,7 +6,7 @@ void monster::takeEvent(point destination, theBrave &aStrongBrave, tools &useful
     bigMonster[51].setHealthPoint(20);
     bigMonster[51].setAttack(20);
     bigMonster[51].setDefence(1);
-    bigMonster[51].setMoney(1);
+    bigMonster[51].setMoney(6);
 
     bigMonster[52].setHealthPoint(10);
     bigMonster[52].setAttack(15);
