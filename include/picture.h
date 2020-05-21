@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-const int blockNumber = 34;
+const int blockNumber = 36;
 
 class picture {
     public:
