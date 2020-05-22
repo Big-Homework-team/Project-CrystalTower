@@ -7,7 +7,7 @@
 class runGame
 {
 private:
-    void initialize(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, picture &pic); //图形界面初始化
+    void initialize(picture &pic); //图形界面初始化
     picture pic;
 public:
     void run(); //开始游戏

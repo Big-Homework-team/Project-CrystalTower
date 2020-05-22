@@ -28,7 +28,8 @@ void createFrame(picture pic) {
 }
 
 void setBackground(picture pic) {
-
+    setcolor(WHITE);                       //字体颜色
+	setfont(-16, 0, "黑体");
     for(int i = 0; i < 23; i++) { // 铺蓝色背景
         for(int j = 0; j < 23; j++) {
             putimage(i * 32, j * 32, pic.block[99]);
