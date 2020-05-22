@@ -35,8 +35,8 @@ void runGame::run()
 		createMenu();
 		createChoice(choice);
 		char menuAction = getch();
-		if(menuAction == 'w') choice = (choice - 1 + menuLength) % menuLength;
-		if(menuAction == 's') choice = (choice + 1 + menuLength) % menuLength;
+		if(menuAction == 'w' || menuAction == 38) choice = (choice - 1 + menuLength) % menuLength;
+		if(menuAction == 's' || menuAction == 40) choice = (choice + 1 + menuLength) % menuLength;
 		if(menuAction == 32) { // 空格
 			if(choice == 0) { //游戏
 				theBrave aStrongBrave;
@@ -52,7 +52,7 @@ void runGame::run()
 						CreateMenu();
 						break ; //结束游戏.
 					}
-        			handle(action, aStrongBrave, usefulTools, theBigMap); //处理按键
+        			handle(action, aStrongBrave, usefulTools, theBigMap, pic); //处理按键
     				draw(aStrongBrave, usefulTools, theBigMap, pic);
 				}
 				

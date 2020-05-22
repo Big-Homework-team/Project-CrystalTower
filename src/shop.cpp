@@ -75,5 +75,10 @@ void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
             outtextxy(5 * 32, 9 * 32 + 2 * 16, "考虑后再进行购买是明智的行为，");
             outtextxy(5 * 32, 9 * 32 + 3 * 16, "期待您的下次光临。");
         }
+        action = '.';
+        while (action != 32)
+        {
+            action = getch();
+        }
     }
 }

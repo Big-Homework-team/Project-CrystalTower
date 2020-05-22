@@ -1,13 +1,11 @@
 #pragma once
-#include "object.h"
 
-class monster: public object
+class monster
 {
 private:
     int healthPoint, defence, attack;
     int money;
 public:
-    virtual void takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap);
     monster(){};
     ~monster() {};
     int getHealthPoint() {return healthPoint;}

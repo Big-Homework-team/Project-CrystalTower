@@ -1,6 +1,7 @@
+#include "handleMonster.h"
 #include "monster.h"
 
-void monster::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
 {
     monster bigMonster[100];
     bigMonster[51].setHealthPoint(20);

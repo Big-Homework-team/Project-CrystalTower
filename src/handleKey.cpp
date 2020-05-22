@@ -2,10 +2,11 @@
 #include "draw.h"
 #include "object.h"
 #include "distinguishObject.h"
+#include "monsterMannual.h"
 #include <cctype>
 
 
-void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap) //处理按键
+void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, picture pic) //处理按键
 {
     action = tolower(action); //转换大小写
     point position, destination;
@@ -20,7 +21,11 @@ void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBig
     }
     else if(action == 'h')
     {
-
+        if(usefulTools.getMonsterManual() == 1)
+        {
+            //使用怪物手册
+            useMonsterMannual(aStrongBrave, theBigMap, pic);
+        }
     }
     else if(action == 'i')
     {
