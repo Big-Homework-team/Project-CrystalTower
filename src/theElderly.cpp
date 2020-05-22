@@ -17,14 +17,10 @@ void theElderly::takeEvent(point destination, theBrave &aStrongBrave, tools &use
     {
         action = getch();
     }
-    
-    setfillcolor(DARKGRAY);                //设置背景填充色为深灰
-    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32); //绘制矩形作为背景
-    setcolor(WHITE);                       //字体颜色
-    setfont(16, 0, "黑体");                //文字高度16像素，宽度自适应，字体类型
-    setbkmode(TRANSPARENT);                //字体背景色块调为透明
-    outtextxy(5 * 32, 9 * 32, "获得了怪物手册！按 H 可以使用");
 
+    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
+    outtextxy(5 * 32, 9 * 32, "获得了永久类物品 怪物手册！");
+    outtextxy(5 * 32, 9 * 32 + 1 * 16, "可以记录怪物的生命值、攻击、防御和特性，按 H 可使用。");
     action = '.';
     while (action != 32)
     {

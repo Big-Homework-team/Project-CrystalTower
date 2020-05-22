@@ -20,36 +20,44 @@ void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
     {
         action = getch();
     }
-    if (action == 32)
+
+    action = '.';
+    int choice = 0, menuLength = 4;
+    while (action != 32) //实现滑动选择可视化
     {
+
         bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
-        outtextxy(5 * 32, 9 * 32, "商会老板 罗薇娜：");
-        outtextxy(5 * 32, 9 * 32 + 2 * 16, "请输出数字代表选择：");
-        outtextxy(5 * 32, 9 * 32 + 3 * 16, "1:增加400点生命值");
-        outtextxy(5 * 32, 9 * 32 + 4 * 16, "2:增加3点攻击值");
-        outtextxy(5 * 32, 9 * 32 + 5 * 16, "3:增加4点防御值");
-        outtextxy(5 * 32, 9 * 32 + 6 * 16, "4:暂时还不需要");
-        while (action != '1' && action != '2' && action != '3' && action != '4')
-        {
-            action = getch();
-        }
-        if (action == '1' || action == '2' || action == '3')
+        outtextxy(5 * 32, 9 * 32 + 0 * 16, "增加400点生命值");
+        outtextxy(5 * 32, 9 * 32 + 1 * 16, "增加3点攻击值");
+        outtextxy(5 * 32, 9 * 32 + 2 * 16, "增加4点防御值");
+        outtextxy(5 * 32, 9 * 32 + 3 * 16, "暂时还不需要");
+        outtextxy(5 * 32 + 10 * 16, 9 * 32 + choice * 16, "<<<");
+        action = getch();
+        if (action == 'w' || action == 38)
+            choice = (choice - 1 + menuLength) % menuLength;
+        if (action == 's' || action == 40)
+            choice = (choice + 1 + menuLength) % menuLength;
+    }
+
+    if (action == 32) //判断购买内容
+    {
+        if (choice == 0 || choice == 1 || choice == 2)
         {
             if (usefulTools.getMoney() >= cost)
             {
-                if (action == '1')
+                if (choice == 0)
                 {
                     aStrongBrave.setHealthPoint(aStrongBrave.getHealthPoint() + 400);
                     aStrongBrave.setTimes(aStrongBrave.getTimes() + 1);
                     usefulTools.setMoney(usefulTools.getMoney() - cost);
                 }
-                if (action == '2')
+                if (choice == 1)
                 {
                     aStrongBrave.setAttack(aStrongBrave.getAttack() + 3);
                     aStrongBrave.setTimes(aStrongBrave.getTimes() + 1);
                     usefulTools.setMoney(usefulTools.getMoney() - cost);
                 }
-                if (action == '3')
+                if (choice == 2)
                 {
                     aStrongBrave.setDefence(aStrongBrave.getDefence() + 4);
                     aStrongBrave.setTimes(aStrongBrave.getTimes() + 1);
@@ -68,7 +76,7 @@ void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
                 outtextxy(5 * 32, 9 * 32 + 3 * 16, "可以考虑通过讨伐魔物赚取金币。");
             }
         }
-        else if (action == '4')
+        else if (choice == 3)
         {
             bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
             outtextxy(5 * 32, 9 * 32, "商会老板 罗薇娜：");
