@@ -1,8 +1,10 @@
+#include "handleMonster.h"
 #include "monster.h"
 
-void monster::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
 {
     monster bigMonster[100];
+    //设置怪物属性
     bigMonster[51].setHealthPoint(20);
     bigMonster[51].setAttack(20);
     bigMonster[51].setDefence(1);

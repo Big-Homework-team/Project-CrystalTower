@@ -13,7 +13,7 @@ object *distinguishObject(int id)
     else if(id == 35 || id == 37 || id == 38) newObject = new tool;
     else if(id == 41) newObject = new theElderly;
     else if(id == 42) newObject = new shop;
-    else if(51 <= id && id <= 80) newObject = new monster;
+    else if(51 <= id && id <= 80) newObject = new handleMonster;
     else if(id == 81) newObject = new boss;
     else newObject = new wall; //没找到就返回墙
     return newObject;

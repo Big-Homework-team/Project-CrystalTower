@@ -2,7 +2,6 @@
 #include "runGame.h"
 #include "draw.h" //绘制地图与角色数据
 #include "handleKey.h" //处理键盘事件
-#include "monster.h"
 
 void runGame::initialize(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, picture &pic)
 {
@@ -34,6 +33,7 @@ void runGame::run()
 	tools usefulTools;
 	map theBigMap;
 	picture pic;
+	
     initialize(aStrongBrave, usefulTools, theBigMap, pic); //图形界面初始化
 	for(;is_run(); delay_fps(60))
 	{
@@ -42,7 +42,7 @@ void runGame::run()
 		{
 			return ; //结束游戏.
 		}
-        handle(action, aStrongBrave, usefulTools, theBigMap); //处理按键
+        handle(action, aStrongBrave, usefulTools, theBigMap, pic); //处理按键
     	draw(aStrongBrave, usefulTools, theBigMap, pic);
 	}
 }
