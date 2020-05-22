@@ -52,7 +52,7 @@ void runGame::run()
 						CreateMenu();
 						break ; //结束游戏.
 					}
-        			handle(action, aStrongBrave, usefulTools, theBigMap); //处理按键
+        			handle(action, aStrongBrave, usefulTools, theBigMap, pic); //处理按键
     				draw(aStrongBrave, usefulTools, theBigMap, pic);
 				}
 				
