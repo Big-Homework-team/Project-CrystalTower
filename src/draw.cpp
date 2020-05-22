@@ -28,6 +28,7 @@ void createFrame(picture pic) {
 }
 
 void setBackground(picture pic) {
+    setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     setcolor(WHITE);                       //字体颜色
 	setfont(-16, 0, "黑体");
     for(int i = 0; i < 23; i++) { // 铺蓝色背景
