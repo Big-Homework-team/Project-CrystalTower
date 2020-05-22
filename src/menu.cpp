@@ -3,6 +3,7 @@
 void createMenu() {
     setcolor(BLACK);                       //字体颜色
 	setfont(-16, 0, "黑体");
+    setfillcolor(DARKGRAY); 
 	setbkmode(TRANSPARENT);
     PIMAGE backPicture = newimage();
     getimage(backPicture, "static\\img\\crystal.png");
