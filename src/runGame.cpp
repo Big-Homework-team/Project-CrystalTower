@@ -35,8 +35,8 @@ void runGame::run()
 		createMenu();
 		createChoice(choice);
 		char menuAction = getch();
-		if(menuAction == 'w' || menuAction == 38) choice = (choice - 1 + menuLength) % menuLength;
-		if(menuAction == 's' || menuAction == 40) choice = (choice + 1 + menuLength) % menuLength;
+		if(menuAction == 'w') choice = (choice - 1 + menuLength) % menuLength;
+		if(menuAction == 's') choice = (choice + 1 + menuLength) % menuLength;
 		if(menuAction == 32) { // 空格
 			if(choice == 0) { //游戏
 				theBrave aStrongBrave;
