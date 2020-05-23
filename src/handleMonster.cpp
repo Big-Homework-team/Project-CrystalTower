@@ -2,7 +2,7 @@
 #include "monster.h"
 #include "draw.h"
 
-const int tim = 300;
+int tim = 300;
 
 void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
@@ -66,36 +66,40 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
     if(time*defence >= healthPoint){
         return ;//没打过
     }
-
+    tim = 300;
     if(id == 53) healthPoint -= defence, //小蝙蝠先手
     putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]),
     drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic),
     Sleep(tim),
     putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[1]);
 
-    while(healthPoint>0 && monsterHealth>0){
+    while(healthPoint>0 && monsterHealth>0) { 
         monsterHealth -= attack;
         //攻击一下怪物；
-        putimage(5 * 32 + 32 * destination.getX(), 32 * destination.getY(), pic.block[93]),
-        drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic),
-        Sleep(tim),
-        putimage(5 * 32 + 32 * destination.getX(), 32 * destination.getY(), pic.block[id]);
-
+        if(tim) putimage(5 * 32 + 32 * destination.getX(), 32 * destination.getY(), pic.block[93]);
+        drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic);
+        if(tim) Sleep(tim);
+        if(tim) putimage(5 * 32 + 32 * destination.getX(), 32 * destination.getY(), pic.block[id]);
         if(monsterHealth <= 0) break;
+
+
+        if(kbhit() || keystate(VK_UP) || keystate(VK_DOWN) || keystate(VK_LEFT) || keystate(VK_RIGHT) || keystate('w') || keystate('s') || keystate('a') || keystate('d'))
+            tim = 0; 
 
         healthPoint -= defence;
         //攻击一下勇者；
-        putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]),
-        drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic),
-        Sleep(tim),
-        putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[1]);
-
+        if(tim) putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]);
+        drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic);
+        if(tim) Sleep(tim);
+        if(tim) putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[1]);
         if(healthPoint<=0) break;
-    }
 
+        if(kbhit() || keystate(VK_UP) || keystate(VK_DOWN) || keystate(VK_LEFT) || keystate(VK_RIGHT) || keystate('w') || keystate('s') || keystate('a') || keystate('d'))
+            tim = 0; 
+    }
+    tim = 300;
     aStrongBrave.setHealthPoint(healthPoint);
     theBigMap.setPoint(destination,0);
-    aStrongBrave.setPosition(destination);
 
     int money=usefulTools.getMoney();
     money+=nowMonster.getMoney();
@@ -103,7 +107,7 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
 
     if(id == 52) //打败了黑史莱姆
     {
-        theBigMap.setPoint(point(2, 6, 4), 0); //生成机关门
-        theBigMap.setPoint(point(2, 6, 8), 0); //生成机关门
+        theBigMap.setPoint(point(2, 6, 4), 0); //消除机关门
+        theBigMap.setPoint(point(2, 6, 8), 0); //消除机关门
     }
 }
