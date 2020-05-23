@@ -59,7 +59,6 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
 
     aStrongBrave.setHealthPoint(healthPoint);
     theBigMap.setPoint(destination,0);
-    aStrongBrave.setPosition(destination);
 
     int money=usefulTools.getMoney();
     money+=nowMonster.getMoney();
@@ -67,7 +66,7 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
 
     if(id == 52) //打败了黑史莱姆
     {
-        theBigMap.setPoint(point(2, 6, 4), 0); //生成机关门
-        theBigMap.setPoint(point(2, 6, 8), 0); //生成机关门
+        theBigMap.setPoint(point(2, 6, 4), 0); //消除机关门
+        theBigMap.setPoint(point(2, 6, 8), 0); //消除机关门
     }
 }
