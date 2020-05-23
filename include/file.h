@@ -10,4 +10,4 @@ using namespace std;
 void writeFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char option);
 void readFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char option);
 void optionWriteFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap);
-void optionReadFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap);
+int optionReadFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap);

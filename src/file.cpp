@@ -4,10 +4,11 @@ void writeFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char 
 {
     if(!('1' <= option && option <= '5')) return ;
     FILE *fp;
+    string path = "static\\save\\";
     string fileName = "save";
     fileName = fileName + option + ".txt";
-
-	fp = fopen(fileName.c_str(),"w");
+    path += fileName;
+    fp = fopen(path.c_str(),"w");
 
     fprintf(fp, "%d %d %d %d\n", aStrongBrave.getHealthPoint(), aStrongBrave.getDefence(), aStrongBrave.getAttack(), aStrongBrave.getTimes());
     fprintf(fp, "%d %d %d\n", aStrongBrave.getPosition().getFloor(), aStrongBrave.getPosition().getX(), aStrongBrave.getPosition().getY());
@@ -34,10 +35,11 @@ void readFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char o
 {
     if(!('1' <= option && option <= '5')) return ;
     FILE *fp;
+    string path = "static\\save\\";
     string fileName = "save";
     fileName = fileName + option + ".txt";
-
-	fp = fopen(fileName.c_str(),"r");
+    path += fileName;
+    fp = fopen(path.c_str(),"r");
 
     int healthPoint, defence, attack, times;
     int floor, x, y; point position;
@@ -84,21 +86,22 @@ void optionWriteFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
     setcolor(WHITE);                       //字体颜色
     setfont(16, 0, "黑体");                //文字高度16像素，宽度自适应，字体类型
     setbkmode(TRANSPARENT);                //字体背景色块调为透明
-    int choice = 1, menuLength = 5;
     int floor[6], healthPoint[6], attack[6], defence[6];
     for(char c = '1'; c <= '5'; c ++)
     {
         FILE *fp;
+        string path = "static\\save\\";
         string fileName = "save";
         fileName = fileName + c + ".txt";
-
-        fp = fopen(fileName.c_str(),"r");
+        path += fileName;
+        fp = fopen(path.c_str(),"r");
 
         int times;
         fscanf(fp, "%d%d%d%d", &healthPoint[c - '0'], &defence[c - '0'], &attack[c - '0'], &times);
         fscanf(fp, "%d", &floor[c - '0']);
         fclose(fp);
     }
+    int choice = 1, menuLength = 6;
     char action = '.';
     while (action != 32) //实现滑动选择可视化
     {
@@ -115,39 +118,44 @@ void optionWriteFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
             imformation += to_string(defence[c - '0']) + " 防";
             outtextxy(6 * 32 + 1 * 32, 2 * 32 + (c - '0' - 1) * 64, imformation.c_str());
         }
+        outtextxy(6 * 32 + 1 * 32, 2 * 32 + (6 - 1) * 64, "取消");
         action = getch();
         if (action == 'w' || action == 38)
             choice = (choice - 1 - 1 + menuLength) % menuLength + 1;
         if (action == 's' || action == 40)
             choice = (choice - 1 + 1 + menuLength) % menuLength + 1;
     }
-    writeFile(aStrongBrave, usefulTools, theBigMap, '0' + choice);
-    bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
-    outtextxy(6 * 32 + 4 * 32 + 16, 22, "存档成功");
-    action = getch();
+    if(choice != 6)
+    {
+        writeFile(aStrongBrave, usefulTools, theBigMap, '0' + choice);
+        bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
+        outtextxy(6 * 32 + 4 * 32 + 16, 22, "存档成功");
+        action = getch();
+    }
 }
-void optionReadFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+int optionReadFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
 {
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
     setcolor(WHITE);                       //字体颜色
     setfont(16, 0, "黑体");                //文字高度16像素，宽度自适应，字体类型
     setbkmode(TRANSPARENT);                //字体背景色块调为透明
-    int choice = 1, menuLength = 5;
     int floor[6], healthPoint[6], attack[6], defence[6];
     for(char c = '1'; c <= '5'; c ++)
     {
         FILE *fp;
+        string path = "static\\save\\";
         string fileName = "save";
         fileName = fileName + c + ".txt";
-
-        fp = fopen(fileName.c_str(),"r");
+        path += fileName;
+        fp = fopen(path.c_str(),"r");
 
         int times;
         fscanf(fp, "%d%d%d%d", &healthPoint[c - '0'], &defence[c - '0'], &attack[c - '0'], &times);
         fscanf(fp, "%d", &floor[c - '0']);
         fclose(fp);
     }
+    int choice = 1, menuLength = 6;
     char action = '.';
     while (action != 32) //实现滑动选择可视化
     {
@@ -164,14 +172,20 @@ void optionReadFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
             imformation += to_string(defence[c - '0']) + " 防";
             outtextxy(6 * 32 + 1 * 32, 2 * 32 + (c - '0' - 1) * 64, imformation.c_str());
         }
+        outtextxy(6 * 32 + 1 * 32, 2 * 32 + (6 - 1) * 64, "取消");
         action = getch();
         if (action == 'w' || action == 38)
             choice = (choice - 1 - 1 + menuLength) % menuLength + 1;
         if (action == 's' || action == 40)
             choice = (choice - 1 + 1 + menuLength) % menuLength + 1;
     }
-    readFile(aStrongBrave, usefulTools, theBigMap, '0' + choice);
-    bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
-    outtextxy(6 * 32 + 4 * 32 + 16, 22, "读档成功");
-    action = getch();
+    if(choice != 6)
+    {
+        readFile(aStrongBrave, usefulTools, theBigMap, '0' + choice);
+        bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
+        outtextxy(6 * 32 + 4 * 32 + 16, 22, "读档成功");
+        action = getch();
+        return 0;
+    }
+    if(choice == 6) return 1;
 }
