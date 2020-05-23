@@ -20,7 +20,7 @@ void theElderly::takeEvent(point destination, theBrave &aStrongBrave, tools &use
 
     bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
     outtextxy(5 * 32, 9 * 32 + 0 * 16, "顺便提醒你，此塔凶险，");
-    outtextxy(5 * 32, 9 * 32 + 1 * 16, "按 f 可以存档，而按 r 可以读档。");
+    outtextxy(5 * 32, 9 * 32 + 1 * 16, "按 F 可以存档，而按 R 可以读档。");
     outtextxy(5 * 32, 9 * 32 + 2 * 16, "当你无法预测即将到来的危机时，");
     outtextxy(5 * 32, 9 * 32 + 3 * 16, "多加存档或许可以让你幸免于难。");
     

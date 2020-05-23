@@ -23,12 +23,12 @@ void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBig
     else if(action == 'r')
     {
         //读档
-        readFile(aStrongBrave, usefulTools, theBigMap);
+        optionReadFile(aStrongBrave, usefulTools, theBigMap);
     }
     else if(action == 'f')
     {
         //存档
-        writeFile(aStrongBrave, usefulTools, theBigMap);
+        optionWriteFile(aStrongBrave, usefulTools, theBigMap);
     }
     else if(action == 'h')
     {

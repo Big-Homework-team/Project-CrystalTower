@@ -32,7 +32,12 @@ void runGame::run()
 	theBrave initaStrongBrave;
 	tools initusefulTools;
 	map inittheBigMap;
-    writeFile(initaStrongBrave, initusefulTools, inittheBigMap); //初始存档
+    writeFile(initaStrongBrave, initusefulTools, inittheBigMap, '1'); //初始存档
+	writeFile(initaStrongBrave, initusefulTools, inittheBigMap, '2'); 
+	writeFile(initaStrongBrave, initusefulTools, inittheBigMap, '3'); 
+	writeFile(initaStrongBrave, initusefulTools, inittheBigMap, '4'); 
+	writeFile(initaStrongBrave, initusefulTools, inittheBigMap, '5'); 
+
 	picture pic;
     initialize(pic); //图形界面初始化
 	int choice = 0;
@@ -66,8 +71,8 @@ void runGame::run()
 				theBrave aStrongBrave;
 				tools usefulTools;
 				map theBigMap;
-				readFile(aStrongBrave, usefulTools, theBigMap);
 				setBackground(pic);
+				optionReadFile(aStrongBrave, usefulTools, theBigMap);
 				draw(aStrongBrave, usefulTools, theBigMap, pic); //绘制图形界面
 				for(;is_run(); delay_fps(60))
 				{

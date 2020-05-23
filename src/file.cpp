@@ -1,9 +1,13 @@
 #include "file.h"
 
-void writeFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+void writeFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char option)
 {
+    if(!('1' <= option && option <= '5')) return ;
     FILE *fp;
-	fp = fopen("save.txt","w");
+    string fileName = "save";
+    fileName = fileName + option + ".txt";
+
+	fp = fopen(fileName.c_str(),"w");
 
     fprintf(fp, "%d %d %d %d\n", aStrongBrave.getHealthPoint(), aStrongBrave.getDefence(), aStrongBrave.getAttack(), aStrongBrave.getTimes());
     fprintf(fp, "%d %d %d\n", aStrongBrave.getPosition().getFloor(), aStrongBrave.getPosition().getX(), aStrongBrave.getPosition().getY());
@@ -26,10 +30,14 @@ void writeFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
 	fclose(fp);
 }
 
-void readFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+void readFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char option)
 {
-	FILE *fp;
-	fp = fopen("save.txt","r");
+    if(!('1' <= option && option <= '5')) return ;
+    FILE *fp;
+    string fileName = "save";
+    fileName = fileName + option + ".txt";
+
+	fp = fopen(fileName.c_str(),"r");
 
     int healthPoint, defence, attack, times;
     int floor, x, y; point position;
@@ -66,4 +74,104 @@ void readFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
                 theBigMap.setPoint(point(i, j, k), theMap[i][j][k]);
             }
 	fclose(fp);
+}
+
+
+void optionWriteFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+{
+    setfillcolor(DARKGRAY);                //设置背景填充色为深灰
+    bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
+    setcolor(WHITE);                       //字体颜色
+    setfont(16, 0, "黑体");                //文字高度16像素，宽度自适应，字体类型
+    setbkmode(TRANSPARENT);                //字体背景色块调为透明
+    int choice = 1, menuLength = 5;
+    int floor[6], healthPoint[6], attack[6], defence[6];
+    for(char c = '1'; c <= '5'; c ++)
+    {
+        FILE *fp;
+        string fileName = "save";
+        fileName = fileName + c + ".txt";
+
+        fp = fopen(fileName.c_str(),"r");
+
+        int times;
+        fscanf(fp, "%d%d%d%d", &healthPoint[c - '0'], &defence[c - '0'], &attack[c - '0'], &times);
+        fscanf(fp, "%d", &floor[c - '0']);
+        fclose(fp);
+    }
+    char action = '.';
+    while (action != 32) //实现滑动选择可视化
+    {
+        bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
+        outtextxy(5 * 32 + 4 * 32, 22, "请选择要覆盖的存档");
+        outtextxy(5 * 32 + 1 * 32, 2 * 32 + (choice - 1) * 64, ">>>");
+        for(char c = '1'; c <= '5'; c ++)
+        { 
+            string imformation = "";
+            imformation += c;
+            imformation += ": " + to_string(floor[c - '0']) + " 层，";
+            imformation += to_string(healthPoint[c - '0']) + " 生命值，";
+            imformation += to_string(attack[c - '0']) + " 攻，";
+            imformation += to_string(defence[c - '0']) + " 防";
+            outtextxy(6 * 32 + 1 * 32, 2 * 32 + (c - '0' - 1) * 64, imformation.c_str());
+        }
+        action = getch();
+        if (action == 'w' || action == 38)
+            choice = (choice - 1 - 1 + menuLength) % menuLength + 1;
+        if (action == 's' || action == 40)
+            choice = (choice - 1 + 1 + menuLength) % menuLength + 1;
+    }
+    writeFile(aStrongBrave, usefulTools, theBigMap, '0' + choice);
+    bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
+    outtextxy(6 * 32 + 4 * 32 + 16, 22, "存档成功");
+    action = getch();
+}
+void optionReadFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+{
+    setfillcolor(DARKGRAY);                //设置背景填充色为深灰
+    bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
+    setcolor(WHITE);                       //字体颜色
+    setfont(16, 0, "黑体");                //文字高度16像素，宽度自适应，字体类型
+    setbkmode(TRANSPARENT);                //字体背景色块调为透明
+    int choice = 1, menuLength = 5;
+    int floor[6], healthPoint[6], attack[6], defence[6];
+    for(char c = '1'; c <= '5'; c ++)
+    {
+        FILE *fp;
+        string fileName = "save";
+        fileName = fileName + c + ".txt";
+
+        fp = fopen(fileName.c_str(),"r");
+
+        int times;
+        fscanf(fp, "%d%d%d%d", &healthPoint[c - '0'], &defence[c - '0'], &attack[c - '0'], &times);
+        fscanf(fp, "%d", &floor[c - '0']);
+        fclose(fp);
+    }
+    char action = '.';
+    while (action != 32) //实现滑动选择可视化
+    {
+        bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
+        outtextxy(5 * 32 + 4 * 32, 22, "请选择要读取的存档");
+        outtextxy(5 * 32 + 1 * 32, 2 * 32 + (choice - 1) * 64, ">>>");
+        for(char c = '1'; c <= '5'; c ++)
+        { 
+            string imformation = "";
+            imformation += c;
+            imformation += ": " + to_string(floor[c - '0']) + " 层，";
+            imformation += to_string(healthPoint[c - '0']) + " 生命值，";
+            imformation += to_string(attack[c - '0']) + " 攻，";
+            imformation += to_string(defence[c - '0']) + " 防";
+            outtextxy(6 * 32 + 1 * 32, 2 * 32 + (c - '0' - 1) * 64, imformation.c_str());
+        }
+        action = getch();
+        if (action == 'w' || action == 38)
+            choice = (choice - 1 - 1 + menuLength) % menuLength + 1;
+        if (action == 's' || action == 40)
+            choice = (choice - 1 + 1 + menuLength) % menuLength + 1;
+    }
+    readFile(aStrongBrave, usefulTools, theBigMap, '0' + choice);
+    bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
+    outtextxy(6 * 32 + 4 * 32 + 16, 22, "读档成功");
+    action = getch();
 }
