@@ -4,7 +4,7 @@ void space::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTo
 {
     int id = theBigMap.getPoint(destination);
     if (id == 0){
-        if (theBigMap.getTheMap(point(2, 8, 11)) == 7 && theBigMap.getTheMap(point(2, 6, 4)) == 13)
+        if (theBigMap.getPoint(point(2, 8, 11)) == 7 && theBigMap.getPoint(point(2, 6, 4)) == 13)
         {
             setfillcolor(DARKGRAY);                //设置背景填充色为深灰
             bar(5 * 32, 9 * 32, 18 * 32, 14 * 32); //绘制矩形作为背景
@@ -13,9 +13,9 @@ void space::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTo
             setbkmode(TRANSPARENT);                //字体背景色块调为透明
             outtextxy(5 * 32, 9 * 32 + 0 * 16, "神秘的声音：");
             outtextxy(5 * 32, 9 * 32 + 1 * 16, "看起来你陷入了陷阱,");
-            outtextxy(5 * 32, 9 * 32 + 1 * 16, "不打败眼前的怪物似乎就无法离开，");
-            outtextxy(5 * 32, 9 * 32 + 2 * 16, "不如观察一下地图怪异的地方，在那里往往会有隐藏着的宝物。");
-            outtextxy(5 * 32, 9 * 32 + 3 * 16, "如果暂时逃脱不了陷阱，不如利用存档再次挑战。");
+            outtextxy(5 * 32, 9 * 32 + 2 * 16, "不打败眼前的怪物似乎就无法离开，");
+            outtextxy(5 * 32, 9 * 32 + 3 * 16, "不如观察一下地图怪异的地方，那里往往会有隐藏的宝物。");
+            outtextxy(5 * 32, 9 * 32 + 4 * 16, "如果暂时逃脱不了陷阱，不如利用存档再次挑战。");
             char action = '.';
             while (action != 32)
             {

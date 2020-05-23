@@ -107,13 +107,6 @@ int map::getPoint(point position)
     return 0;
 }
 
-int map::getTheMap(point position) {
-    int floor = position.getFloor();
-    int x = position.getX();
-    int y = position.getY();
-    return theMap[floor][x][y];
-}
-
 void map::setPoint(point position, int val)
 {
     int floor = position.getFloor();
