@@ -80,7 +80,8 @@ void runGame::run()
 		if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
 		createMenu();
 		createChoice(choice);
-		char menuAction = getch();
+		char menuAction = '.';
+		if(kbhit()) menuAction = getch();
 		if(menuAction == 'w' || menuAction == 38) choice = (choice - 1 + menuLength) % menuLength;
 		if(menuAction == 's' || menuAction == 40) choice = (choice + 1 + menuLength) % menuLength;
 		if(menuAction == 32) { // 空格
@@ -93,7 +94,8 @@ void runGame::run()
 				for(;is_run(); delay_fps(60))
 				{
 					if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
-					char action = getch();
+					char action = '.';
+					if(kbhit()) action = getch();
    	 				if(action == 27) //ESC 的键码是 27.
 					{
 						CreateMenu();
@@ -114,7 +116,9 @@ void runGame::run()
 				draw(aStrongBrave, usefulTools, theBigMap, pic); //绘制图形界面
 				for(;is_run(); delay_fps(60))
 				{
-					char action = getch();
+					if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
+					char action = '.';
+					if(kbhit()) action = getch();
    	 				if(action == 27) //ESC 的键码是 27.
 					{
 						CreateMenu();
