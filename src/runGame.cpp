@@ -28,7 +28,10 @@ void runGame::initialize(picture &pic)
 
 void runGame::run()
 {
-	
+	MUSIC music;
+	music.OpenFile("static\\music\\what for.mp3");
+	music.Play(0);//播放BGM
+
 	theBrave initaStrongBrave;
 	tools initusefulTools;
 	map inittheBigMap;
@@ -74,6 +77,7 @@ void runGame::run()
     initialize(pic); //图形界面初始化
 	int choice = 0;
 	for(;is_run(); delay_fps(60)) {
+		if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
 		createMenu();
 		createChoice(choice);
 		char menuAction = getch();
@@ -88,6 +92,7 @@ void runGame::run()
 				draw(aStrongBrave, usefulTools, theBigMap, pic); //绘制图形界面
 				for(;is_run(); delay_fps(60))
 				{
+					if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
 					char action = getch();
    	 				if(action == 27) //ESC 的键码是 27.
 					{
