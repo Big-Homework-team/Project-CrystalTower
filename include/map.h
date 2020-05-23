@@ -16,5 +16,6 @@ public:
     ~map() {};
     bool checkPoint(point position);
     int getPoint(point position);
+    int getTheMap(point position); //查询地图值，用于判断史莱姆机关前是否触发隐藏
     void setPoint(point position, int val);
 };

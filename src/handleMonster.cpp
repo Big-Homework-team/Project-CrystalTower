@@ -20,7 +20,43 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
 
     if(id == 55 && attack > 1) attack = 1; //打石头人最多 1 点
 
-    if(attack == 0) return ;
+    if(attack == 0) {
+        if (theBigMap.getTheMap(point(2, 8, 11)) == 7 && theBigMap.getTheMap(point(2, 6, 4)) == 13 && id == 52)
+        {
+            setfillcolor(DARKGRAY);                //设置背景填充色为深灰
+            bar(5 * 32, 9 * 32, 18 * 32, 14 * 32); //绘制矩形作为背景
+            setcolor(WHITE);                       //字体颜色
+            setfont(16, 0, "黑体");                //文字高度16像素，宽度自适应，字体类型
+            setbkmode(TRANSPARENT);                //字体背景色块调为透明
+            outtextxy(5 * 32, 9 * 32 + 0 * 16, "神秘的声音：");
+            outtextxy(5 * 32, 9 * 32 + 1 * 16, "看起来你陷入了陷阱,");
+            outtextxy(5 * 32, 9 * 32 + 1 * 16, "不打败眼前的怪物似乎就无法离开，");
+            outtextxy(5 * 32, 9 * 32 + 2 * 16, "不如观察一下地图怪异的地方，在那里往往会有隐藏着的宝物。");
+            outtextxy(5 * 32, 9 * 32 + 3 * 16, "如果暂时逃脱不了陷阱，不如利用存档再次挑战。");
+            char action = '.';
+            while (action != 32)
+            {
+                action = getch();
+            }
+            theBigMap.setPoint(point(2, 8, 11), 45);
+        }
+        else if (theBigMap.getTheMap(point(2, 8, 11)) == 0 && theBigMap.getTheMap(point(2, 6, 4)) == 13 && id == 52)
+        {
+            bar(5 * 32, 9 * 32, 18 * 32, 14 * 32); //绘制矩形作为背景
+            outtextxy(5 * 32, 9 * 32 + 0 * 16, "神秘的声音：");
+            outtextxy(5 * 32, 9 * 32 + 1 * 16, "看起来你无法战胜面前的怪物，");
+            outtextxy(5 * 32, 9 * 32 + 2 * 16, "手上是否还有没有利用到的道具呢？");
+            outtextxy(5 * 32, 9 * 32 + 3 * 16, "及时到上一层回收之前没有使用的物品也是重要的策略。");
+            outtextxy(5 * 32, 9 * 32 + 4 * 16, "如果暂时逃脱不了陷阱，不如利用存档再次挑战。");
+            char action = '.';
+            while (action != 32)
+            {
+                action = getch();
+            }
+            theBigMap.setPoint(point(2, 8, 11), 45);
+        }
+        return ;
+    }
 
     int time=monsterHealth/attack;
     if(monsterHealth%attack==0) time--;
