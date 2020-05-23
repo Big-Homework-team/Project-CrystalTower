@@ -102,6 +102,17 @@ void useMonsterMannual(theBrave aStrongBrave, map theBigMap, picture pic)
         outtextxy(9 * 32 + 2 + det * 32 * 8, (0 + 3 * ((i - 1) % 3)) * 32 + 8, to_string(nowMonster.getHealthPoint()).c_str());
         outtextxy(9 * 32 + 2 + det * 32 * 8, (0 + 3 * ((i - 1) % 3) + 1) * 32 + 8, to_string(nowMonster.getAttack()).c_str());
         outtextxy(9 * 32 + 2 + det * 32 * 8, (0 + 3 * ((i - 1) % 3) + 2) * 32 + 8, to_string(nowMonster.getDefence()).c_str());
+
+        if(id == 53)
+        {
+            outtextxy(5 * 32 + det * 32 * 8, 16 + (0 + 3 * ((i - 1) % 3) + 1) * 32 + 8, "先");  
+            outtextxy(15 + 5 * 32 + det * 32 * 8, 16 + (0 + 3 * ((i - 1) % 3) + 1) * 32 + 8, "攻");
+        }
+        if(id == 55)
+        {
+            outtextxy(5 * 32 + det * 32 * 8, 16 + (0 + 3 * ((i - 1) % 3) + 1) * 32 + 8, "坚");  
+            outtextxy(15 + 5 * 32 + det * 32 * 8, 16 + (0 + 3 * ((i - 1) % 3) + 1) * 32 + 8, "固");
+        }
     }
     outtextxy(14 * 32, 12 * 32, "按空格键退出");
     char action = '.';
