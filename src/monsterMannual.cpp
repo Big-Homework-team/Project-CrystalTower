@@ -49,6 +49,10 @@ void useMonsterMannual(theBrave aStrongBrave, map theBigMap, picture pic)
     setfont(16, 0, "黑体");                //文字高度16像素，宽度自适应，字体类型
     setbkmode(TRANSPARENT);                //字体背景色块调为透明
 
+    for(int x = 0; x < 13; x ++)
+        for(int y = 0; y < 13; y ++)
+            putimage((5 + x) * 32, y * 32, pic.block[0]); //背景
+
     int have[100], vis[100]; int num = 0;
     for(int i = 0; i < 100; i ++) have[i] = vis[i] = 0;
     for(int x = 0; x < 13; x ++)
