@@ -81,7 +81,8 @@ void runGame::run()
 		createMenu();
 		createChoice(choice);
 		char menuAction = '.';
-		if(kbhit()) menuAction = getch();
+		//if(kbhit()) 
+		menuAction = getch();
 		if(menuAction == 'w' || menuAction == 38) choice = (choice - 1 + menuLength) % menuLength;
 		if(menuAction == 's' || menuAction == 40) choice = (choice + 1 + menuLength) % menuLength;
 		if(menuAction == 32) { // 空格
@@ -95,7 +96,8 @@ void runGame::run()
 				{
 					if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
 					char action = '.';
-					if(kbhit()) action = getch();
+					//if(kbhit()) 
+					action = getch();
    	 				if(action == 27) //ESC 的键码是 27.
 					{
 						CreateMenu();
@@ -118,7 +120,8 @@ void runGame::run()
 				{
 					if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
 					char action = '.';
-					if(kbhit()) action = getch();
+					//if(kbhit()) 
+					action = getch();
    	 				if(action == 27) //ESC 的键码是 27.
 					{
 						CreateMenu();
