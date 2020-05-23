@@ -2,7 +2,7 @@
 #include <graphics.h>
 #include <cmath>
 
-void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
 
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰

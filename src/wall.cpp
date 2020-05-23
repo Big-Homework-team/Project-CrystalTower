@@ -1,6 +1,6 @@
 #include "wall.h"
 
-void wall::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+void wall::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
     int id = theBigMap.getPoint(destination);
     if(id == 2 && usefulTools.getUsingDraft() == 1)

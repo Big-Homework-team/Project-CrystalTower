@@ -7,7 +7,7 @@
 #include "file.h"
 
 
-void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, picture pic) //处理按键
+void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic) //处理按键
 {
     action = tolower(action); //转换大小写
     point position, destination;
@@ -35,7 +35,7 @@ void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBig
         if(usefulTools.getMonsterManual() == 1)
         {
             //使用怪物手册
-            useMonsterMannual(aStrongBrave, theBigMap, pic);
+            useMonsterMannual(aStrongBrave, theBigMap, bigMonster, pic);
         }
     }
     else if(action == 'i')
@@ -74,6 +74,6 @@ void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBig
         if(action == 's' || action == 40) destination.setY(position.getY() + 1);
         if(!theBigMap.checkPoint(destination)) return ;
         object *newObject = distinguishObject(theBigMap.getPoint(destination)); //根据 ID 获取相应的派生类指针
-        newObject->takeEvent(destination, aStrongBrave, usefulTools, theBigMap);
+        newObject->takeEvent(destination, aStrongBrave, usefulTools, theBigMap, bigMonster, pic);
     }
 }

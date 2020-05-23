@@ -3,6 +3,46 @@
 #include "map.h"
 #include "theBrave.h"
 
+void drawMonsterImformation(theBrave aStrongBrave, int id, string name, int healthPoint, int monsterHealth, int attack, int defence, picture pic)
+{
+    if(monsterHealth < 0) monsterHealth = 0;
+    putimage(640, 248, pic.block[id]);
+    setcolor(WHITE);                       //字体颜色
+	setfont(16, 0, "黑体");
+    //left
+    bar(64, 80, 128, 112); // 生命
+    putimage(16, 80,  pic.block[98]); // 生命
+
+    char s[20];
+
+    sprintf(s, "%d", healthPoint);
+    outtextxy(70, 86, s); //
+    //right
+    bar(592, 8* 32 - 16, 720, 384); // 怪物
+    //592-624-656-688-720
+    //240--288-320-352-384
+    for(int i = 592 + 16; i <= 688 - 16; i += 32) {//怪物信息1
+            putimage(i, 8* 32 - 16, pic.block[0]);
+            putimage(i, 8* 32 + 16, pic.block[0]);
+    }
+    putimage(592, 8* 32 - 16, pic.block[0]);
+    putimage(592, 8* 32 + 16, pic.block[0]);
+    putimage(688, 8* 32 - 16, pic.block[0]);
+    putimage(688, 8* 32 + 16, pic.block[0]);
+
+    putimage(640, 240, pic.block[id]);
+    for(int i = 592 + 32; i <= 688; i += 32) {//怪物信息2
+        for(int j = 9 * 32; j <= 9 * 32 + 64; j += 32) {
+            putimage(i, j, pic.block[0]);
+        }
+    }
+    putimage(592, 9 * 32, pic.block[94]); // 三合一贴图
+    line(592, 9 * 32, 720, 9 * 32);
+    outtextxy(656 - 8, 288 + 8, to_string(monsterHealth).c_str());
+    outtextxy(656 - 8, 288 + 32 + 8, to_string(attack).c_str());
+    outtextxy(656 - 8, 288 + 64 + 8, to_string(defence).c_str());
+}
+
 void createFrame(picture pic) {
     //left
     bar(16, 16, 144, 48); // 层数
@@ -20,6 +60,21 @@ void createFrame(picture pic) {
     }
     for(int i = 640; i <= 672; i += 32) {//钥匙
         for(int j = 32; j <= 96; j += 32) {
+            putimage(i, j, pic.block[0]);
+        }
+    }
+    //592-624-656-688-720
+    //240--288-320-352-384
+    for(int i = 592 + 16; i <= 688 - 16; i += 32) {//怪物信息1
+            putimage(i, 8* 32 - 16, pic.block[0]);
+            putimage(i, 8* 32 + 16, pic.block[0]);
+    }
+    putimage(592, 8* 32 - 16, pic.block[0]);
+    putimage(592, 8* 32 + 16, pic.block[0]);
+    putimage(688, 8* 32 - 16, pic.block[0]);
+    putimage(688, 8* 32 + 16, pic.block[0]);
+    for(int i = 592 + 32; i <= 688; i += 32) {//怪物信息2
+        for(int j = 9 * 32; j <= 9 * 32 + 64; j += 32) {
             putimage(i, j, pic.block[0]);
         }
     }

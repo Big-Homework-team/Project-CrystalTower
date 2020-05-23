@@ -4,5 +4,5 @@
 class door: public object
 {
 public:
-    virtual void takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap);
+    virtual void takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic);
 };

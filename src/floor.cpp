@@ -1,6 +1,6 @@
 #include "floor.h"
 
-void floor::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+void floor::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
     int id = theBigMap.getPoint(destination);
     point position = aStrongBrave.getPosition();

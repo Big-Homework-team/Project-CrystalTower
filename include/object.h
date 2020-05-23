@@ -3,9 +3,11 @@
 #include "theBrave.h"
 #include "tools.h"
 #include "map.h"
+#include "monster.h"
+#include "picture.h"
 
 class object
 {
 public:
-    virtual void takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap) = 0;
+    virtual void takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic) = 0;
 };

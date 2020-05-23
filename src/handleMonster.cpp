@@ -1,42 +1,16 @@
 #include "handleMonster.h"
 #include "monster.h"
+#include "draw.h"
 
-void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+const int tim = 300;
+
+void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
-    monster bigMonster[100];
-    bigMonster[51].setHealthPoint(20);
-    bigMonster[51].setAttack(20);
-    bigMonster[51].setDefence(1);
-    bigMonster[51].setMoney(6);
-
-    bigMonster[52].setHealthPoint(10);
-    bigMonster[52].setAttack(15);
-    bigMonster[52].setDefence(11);
-    bigMonster[52].setMoney(2);
-
-    bigMonster[53].setHealthPoint(80);
-    bigMonster[53].setAttack(35);
-    bigMonster[53].setDefence(5);
-    bigMonster[53].setMoney(4);
-
-    bigMonster[54].setHealthPoint(100);
-    bigMonster[54].setAttack(30);
-    bigMonster[54].setDefence(22);
-    bigMonster[54].setMoney(7);
-
-    bigMonster[55].setHealthPoint(30);
-    bigMonster[55].setAttack(30);
-    bigMonster[55].setDefence(21);
-    bigMonster[55].setMoney(7);
-
-    bigMonster[56].setHealthPoint(100);
-    bigMonster[56].setAttack(40);
-    bigMonster[56].setDefence(3);
-    bigMonster[56].setMoney(5);
-
     int id=theBigMap.getPoint(destination);
     monster nowMonster = bigMonster[id];
 
+    /*drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), nowMonster.getHealthPoint(), nowMonster.getAttack(), nowMonster.getDefence(), pic);
+    Sleep(tim);*///开始时显示怪物信息？
     int healthPoint=aStrongBrave.getHealthPoint();
     int attack=aStrongBrave.getAttack() - nowMonster.getDefence();
     int defence=nowMonster.getAttack() - aStrongBrave.getDefence();
@@ -57,14 +31,29 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
         return ;//没打过
     }
 
-    if(id == 53) healthPoint -= defence; //小蝙蝠先手
+    if(id == 53) healthPoint -= defence, //小蝙蝠先手
+    putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]),
+    drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic),
+    Sleep(tim),
+    putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[1]);
 
     while(healthPoint>0 && monsterHealth>0){
         monsterHealth -= attack;
         //攻击一下怪物；
+        putimage(5 * 32 + 32 * destination.getX(), 32 * destination.getY(), pic.block[93]),
+        drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic),
+        Sleep(tim),
+        putimage(5 * 32 + 32 * destination.getX(), 32 * destination.getY(), pic.block[id]);
+
         if(monsterHealth <= 0) break;
+
         healthPoint -= defence;
         //攻击一下勇者；
+        putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]),
+        drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic),
+        Sleep(tim),
+        putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[1]);
+
         if(healthPoint<=0) break;
     }
 

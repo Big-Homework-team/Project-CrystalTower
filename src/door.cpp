@@ -1,6 +1,6 @@
 #include "door.h"
 
-void door::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+void door::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
     int id = theBigMap.getPoint(destination);
     if(id == 10)

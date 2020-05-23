@@ -1,7 +1,7 @@
 #include "tool.h"
 #include <graphics.h>
 
-void tool::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+void tool::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     setcolor(WHITE);                       //字体颜色

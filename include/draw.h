@@ -20,3 +20,5 @@ void updateInfomation();
 void updateInformation(theBrave aStrongBrave, tools usefulTools, picture pic);
 
 void updateMonsterInformation(monster theMonster);
+
+void drawMonsterImformation(theBrave aStrongBrave, int id, string name, int healthPoint, int monsterHealth, int attack, int defence, picture pic);

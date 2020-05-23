@@ -2,47 +2,8 @@
 using namespace std;
 
 
-void useMonsterMannual(theBrave aStrongBrave, map theBigMap, picture pic)
+void useMonsterMannual(theBrave aStrongBrave, map theBigMap, monster bigMonster[], picture pic)
 {
-    monster bigMonster[100];
-    string name[100];
-    //设置怪物属性
-    bigMonster[51].setHealthPoint(20);
-    bigMonster[51].setAttack(20);
-    bigMonster[51].setDefence(1);
-    bigMonster[51].setMoney(6);
-    name[51] = "绿史莱姆";
-
-    bigMonster[52].setHealthPoint(10);
-    bigMonster[52].setAttack(15);
-    bigMonster[52].setDefence(11);
-    bigMonster[52].setMoney(2);
-    name[52] = "黑史莱姆";
-
-    bigMonster[53].setHealthPoint(80);
-    bigMonster[53].setAttack(35);
-    bigMonster[53].setDefence(5);
-    bigMonster[53].setMoney(4);
-    name[53] = "小蝙蝠";
-
-    bigMonster[54].setHealthPoint(100);
-    bigMonster[54].setAttack(30);
-    bigMonster[54].setDefence(22);
-    bigMonster[54].setMoney(7);
-    name[54] = "大蝙蝠";
-
-    bigMonster[55].setHealthPoint(30);
-    bigMonster[55].setAttack(30);
-    bigMonster[55].setDefence(21);
-    bigMonster[55].setMoney(7);
-    name[55] = "石头人";
-
-    bigMonster[56].setHealthPoint(100);
-    bigMonster[56].setAttack(40);
-    bigMonster[56].setDefence(3);
-    bigMonster[56].setMoney(5);
-    name[56] = "骷髅人";
-
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
     setcolor(WHITE);                       //字体颜色
@@ -100,7 +61,7 @@ void useMonsterMannual(theBrave aStrongBrave, map theBigMap, picture pic)
         consume = "消耗" + consume;
         putimage(5 * 32 + det * 32 * 8, (0 + 3 * ((i - 1) % 3)) * 32, pic.block[id]); // 怪物贴图
         putimage(8 * 32 + det * 32 * 8, (0 + 3 * ((i - 1) % 3)) * 32, pic.block[94]); // 三合一贴图
-        outtextxy(6 * 32 + det * 32 * 8, (0 + 3 * ((i - 1) % 3)) * 32 + 8, name[id].c_str());
+        outtextxy(6 * 32 + det * 32 * 8, (0 + 3 * ((i - 1) % 3)) * 32 + 8, nowMonster.getName().c_str());
         outtextxy(6 * 32 + det * 32 * 8, (0 + 3 * ((i - 1) % 3) + 1) * 32 + 8, consume.c_str());
         outtextxy(6 * 32 + det * 32 * 8, (0 + 3 * ((i - 1) % 3) + 2) * 32 + 8, "点体力");
         outtextxy(9 * 32 + 2 + det * 32 * 8, (0 + 3 * ((i - 1) % 3)) * 32 + 8, to_string(nowMonster.getHealthPoint()).c_str());

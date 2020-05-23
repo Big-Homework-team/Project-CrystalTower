@@ -5,4 +5,4 @@
 #include <string>
 #include "picture.h"
 
-void useMonsterMannual(theBrave aStrongBrave, map theBigMap, picture pic);
+void useMonsterMannual(theBrave aStrongBrave, map theBigMap, monster bigMonster[], picture pic);

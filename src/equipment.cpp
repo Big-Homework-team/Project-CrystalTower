@@ -1,6 +1,6 @@
 #include "equipment.h"
 
-void equipment::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+void equipment::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
     int id = theBigMap.getPoint(destination);
     if(id == 19)

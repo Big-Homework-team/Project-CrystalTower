@@ -1,6 +1,6 @@
 #include "prop.h"
 
-void prop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
+void prop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
     int id = theBigMap.getPoint(destination);
     if(id == 15)
