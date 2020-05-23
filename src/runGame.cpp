@@ -4,6 +4,7 @@
 #include "handleKey.h" //处理键盘事件
 #include "monster.h"
 #include "menu.h"
+#include "file.h"
 
 void runGame::initialize(picture &pic)
 {
@@ -28,6 +29,10 @@ void runGame::initialize(picture &pic)
 void runGame::run()
 {
 	
+	theBrave initaStrongBrave;
+	tools initusefulTools;
+	map inittheBigMap;
+    writeFile(initaStrongBrave, initusefulTools, inittheBigMap); //初始存档
 	picture pic;
     initialize(pic); //图形界面初始化
 	int choice = 0;
@@ -58,7 +63,23 @@ void runGame::run()
 				
 			}
 			if(choice == 1) {
-
+				theBrave aStrongBrave;
+				tools usefulTools;
+				map theBigMap;
+				readFile(aStrongBrave, usefulTools, theBigMap);
+				setBackground(pic);
+				draw(aStrongBrave, usefulTools, theBigMap, pic); //绘制图形界面
+				for(;is_run(); delay_fps(60))
+				{
+					char action = getch();
+   	 				if(action == 27) //ESC 的键码是 27.
+					{
+						CreateMenu();
+						break ; //结束游戏.
+					}
+        			handle(action, aStrongBrave, usefulTools, theBigMap, pic); //处理按键
+    				draw(aStrongBrave, usefulTools, theBigMap, pic);
+				}
 			}
 			if(choice == 2) {
 				

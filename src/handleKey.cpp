@@ -4,6 +4,7 @@
 #include "distinguishObject.h"
 #include "monsterMannual.h"
 #include <cctype>
+#include "file.h"
 
 
 void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, picture pic) //处理按键
@@ -18,6 +19,16 @@ void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBig
             usefulTools.setUsingDraft(1);
             usefulTools.setDraft(0);
         }
+    }
+    else if(action == 'r')
+    {
+        //读档
+        readFile(aStrongBrave, usefulTools, theBigMap);
+    }
+    else if(action == 'f')
+    {
+        //存档
+        writeFile(aStrongBrave, usefulTools, theBigMap);
     }
     else if(action == 'h')
     {
