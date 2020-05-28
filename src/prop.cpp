@@ -1,4 +1,5 @@
 #include "prop.h"
+#include "draw.h"
 
 void prop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
@@ -24,4 +25,9 @@ void prop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
         theBigMap.setPoint(destination, 0);
     }
     if(id == 15 || id == 16 || id == 17 || id == 18) aStrongBrave.setPosition(destination);
+    draw(aStrongBrave, usefulTools, theBigMap, pic);
+    MUSIC se;
+    se.OpenFile("static\\se\\获得物品.mp3");
+    se.Play(0);
+    delay_ms(300);
 }

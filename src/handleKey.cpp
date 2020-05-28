@@ -64,6 +64,10 @@ void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBig
                         theBigMap.setPoint(point(destination.getFloor(), destination.getX() + i, destination.getY() + j), 0);
                 }
             usefulTools.setBoom(0);
+            MUSIC se;
+            se.OpenFile("static\\se\\火击.mp3");
+            se.Play(0);
+            delay_ms(300);
         }
     }
     else if(action == 'a' || action == 37 || action == 'd' || action == 39 || action == 'w' || action == 38 || action == 's' || action == 40)

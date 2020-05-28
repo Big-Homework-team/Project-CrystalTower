@@ -6,9 +6,10 @@ int tim = 300;
 
 void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
-    MUSIC music;
-	music.OpenFile("static\\music\\hit.mp3");
     int id=theBigMap.getPoint(destination);
+
+    MUSIC se;
+
     monster nowMonster = bigMonster[id];
 
     /*drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), nowMonster.getHealthPoint(), nowMonster.getAttack(), nowMonster.getDefence(), pic);
@@ -71,32 +72,37 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
     }
     tim = 300;
     if(id == 53) 
-    music.Play(0), 
+    se.OpenFile("static\\se\\蝙蝠.mp3"),
+    se.Play(0),
     healthPoint -= defence, //小蝙蝠先手
     putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]),
     drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic),
-    Sleep(tim),
+    delay_ms(tim),
     putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[1]);
 
     while(healthPoint>0 && monsterHealth>0) { 
-        music.Play(0);
+	    if(usefulTools.getWeapon()) se.OpenFile("static\\se\\剑击.mp3");
+        else se.OpenFile("static\\se\\空手.mp3");
+        se.Play(0);
         monsterHealth -= attack;
         //攻击一下怪物；
         if(tim) putimage(5 * 32 + 32 * destination.getX(), 32 * destination.getY(), pic.block[93]);
         drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic);
-        if(tim) Sleep(tim);
+        if(tim) delay_ms(tim);
         if(tim) putimage(5 * 32 + 32 * destination.getX(), 32 * destination.getY(), pic.block[id]);
         if(monsterHealth <= 0) break;
 
 
         if(kbhit() || keystate(VK_UP) || keystate(VK_DOWN) || keystate(VK_LEFT) || keystate(VK_RIGHT) || keystate('w') || keystate('s') || keystate('a') || keystate('d'))
-            tim = 0; 
-        music.Play(0);
+            tim = 0;
+        if(id == 53 || id == 54) se.OpenFile("static\\se\\蝙蝠.mp3");
+        else se.OpenFile("static\\se\\空手.mp3");
+        se.Play(0);
         healthPoint -= defence;
         //攻击一下勇者；
         if(tim) putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]);
         drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic);
-        if(tim) Sleep(tim);
+        if(tim) delay_ms(tim);
         if(tim) putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[1]);
         if(healthPoint<=0) break;
 
@@ -113,6 +119,11 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
 
     if(id == 52) //打败了黑史莱姆
     {
+        delay_ms(300);
+        MUSIC se;
+        se.OpenFile("static\\se\\开门.mp3");
+        se.Play(0);
+        delay_ms(300);
         theBigMap.setPoint(point(2, 6, 4), 0); //消除机关门
         theBigMap.setPoint(point(2, 6, 8), 0); //消除机关门
     }

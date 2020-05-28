@@ -31,4 +31,11 @@ void floor::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTo
                 }
         aStrongBrave.setPosition(destination);
     }
+    if(id == 3 || id == 4)
+    {
+        MUSIC se;
+        se.OpenFile("static\\se\\上下楼.mp3");
+        se.Play(0);
+        delay_ms(300);
+    }
 }

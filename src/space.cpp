@@ -1,4 +1,5 @@
 #include "space.h"
+#include "draw.h"
 
 void space::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
@@ -30,6 +31,11 @@ void space::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTo
         theBigMap.setPoint(point(2, 6, 7), 0);  //生成空地
         theBigMap.setPoint(point(2, 6, 6), 52); //生成黑史莱姆
         aStrongBrave.setPosition(destination);
+        draw(aStrongBrave, usefulTools, theBigMap, pic);
+        MUSIC se;
+        se.OpenFile("static\\se\\开门.mp3");
+        se.Play(0);
+        delay_ms(300);
         theBigMap.setPoint(point(2, 6, 4), 13); //生成机关门
         theBigMap.setPoint(point(2, 6, 8), 13); //生成机关门
     }

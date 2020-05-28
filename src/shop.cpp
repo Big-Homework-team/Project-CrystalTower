@@ -4,6 +4,8 @@
 
 void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
+    MUSIC se;
+    se.OpenFile("static\\se\\商店.mp3");
 
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     bar(5 * 32, 9 * 32, 18 * 32, 14 * 32); //绘制矩形作为背景
@@ -63,6 +65,7 @@ void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
                     aStrongBrave.setTimes(aStrongBrave.getTimes() + 1);
                     usefulTools.setMoney(usefulTools.getMoney() - cost);
                 }
+                se.Play(0);
                 bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
                 outtextxy(5 * 32, 9 * 32 + 0 * 16, "商会老板 罗薇娜：");
                 outtextxy(5 * 32, 9 * 32 + 1 * 16, "感谢您的惠顾，");

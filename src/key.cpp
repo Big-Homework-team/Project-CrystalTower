@@ -1,4 +1,5 @@
 #include "key.h"
+#include "draw.h"
 
 void key::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
@@ -19,4 +20,9 @@ void key::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTool
         theBigMap.setPoint(destination, 0);
     }
     if(id == 31 || id == 32 || id == 33) aStrongBrave.setPosition(destination);
+    draw(aStrongBrave, usefulTools, theBigMap, pic);
+    MUSIC se;
+    se.OpenFile("static\\se\\获得物品.mp3");
+    se.Play(0);
+    delay_ms(300);
 }

@@ -30,7 +30,9 @@ void theElderly::takeEvent(point destination, theBrave &aStrongBrave, tools &use
     {
         action = getch();
     }
-    
+    MUSIC se;
+    se.OpenFile("static\\se\\获得道具.mp3");
+    se.Play(0);
     bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
     outtextxy(5 * 32, 9 * 32 + 0 * 16, "获得了永久类物品 怪物手册！");
     outtextxy(5 * 32, 9 * 32 + 1 * 16, "可以记录怪物的生命值、攻击、防御和特性，按 H 可使用。");

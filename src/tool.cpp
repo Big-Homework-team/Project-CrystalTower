@@ -10,6 +10,9 @@ void tool::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
     int id = theBigMap.getPoint(destination);
     if (id == 35)
     {
+        MUSIC se;
+        se.OpenFile("static\\se\\获得道具.mp3");
+        se.Play(0);
         usefulTools.setDraft(1);
         theBigMap.setPoint(destination, 0);
         bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
@@ -23,6 +26,9 @@ void tool::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
     }
     else if (id == 37)
     {
+        MUSIC se;
+        se.OpenFile("static\\se\\获得道具.mp3");
+        se.Play(0);
         usefulTools.setTransmitter(1);
         theBigMap.setPoint(destination, 0);
         bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
@@ -36,6 +42,9 @@ void tool::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
     }
     else if (id == 38)
     {
+        MUSIC se;
+        se.OpenFile("static\\se\\获得道具.mp3");
+        se.Play(0);
         usefulTools.setBoom(1);
         theBigMap.setPoint(destination, 0);
         bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
