@@ -73,6 +73,11 @@ void runGame::run()
     bigMonster[56].setMoney(5);
     bigMonster[56].setName("骷髅人");
 
+	bigMonster[82].setHealthPoint(2333);
+    bigMonster[82].setAttack(150);
+    bigMonster[82].setDefence(150);
+    bigMonster[82].setMoney(0);
+    bigMonster[82].setName("哈迪斯");
 	picture pic;
     initialize(pic); //图形界面初始化
 	int choice = 0;
