@@ -1,6 +1,6 @@
 #pragma once
 
-class point
+class point //坐标类
 {
 private:
     int floor, x, y;
