@@ -7,6 +7,7 @@ void floor::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTo
     if(id == 3)
     {
         destination.setFloor(position.getFloor() + 1);
+        if(destination.getFloor() == 5) destination.setX(destination.getX() - 1);
         for(int x = 0; x < 13; x ++)
             for(int y = 0; y < 13; y ++)
                 if(theBigMap.getPoint(point(destination.getFloor(), x, y)) == 4)
