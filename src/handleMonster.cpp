@@ -6,6 +6,8 @@ int tim = 300;
 
 void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
+    MUSIC music;
+	music.OpenFile("static\\music\\hit.mp3");
     int id=theBigMap.getPoint(destination);
     monster nowMonster = bigMonster[id];
 
@@ -68,13 +70,16 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
         return ;//没打过
     }
     tim = 300;
-    if(id == 53) healthPoint -= defence, //小蝙蝠先手
+    if(id == 53) 
+    music.Play(0), 
+    healthPoint -= defence, //小蝙蝠先手
     putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]),
     drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic),
     Sleep(tim),
     putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[1]);
 
     while(healthPoint>0 && monsterHealth>0) { 
+        music.Play(0);
         monsterHealth -= attack;
         //攻击一下怪物；
         if(tim) putimage(5 * 32 + 32 * destination.getX(), 32 * destination.getY(), pic.block[93]);
@@ -86,7 +91,7 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
 
         if(kbhit() || keystate(VK_UP) || keystate(VK_DOWN) || keystate(VK_LEFT) || keystate(VK_RIGHT) || keystate('w') || keystate('s') || keystate('a') || keystate('d'))
             tim = 0; 
-
+        music.Play(0);
         healthPoint -= defence;
         //攻击一下勇者；
         if(tim) putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]);
