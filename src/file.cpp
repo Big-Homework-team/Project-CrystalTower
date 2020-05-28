@@ -2,6 +2,7 @@
 
 void writeFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char option)
 {
+    //存档
     if(!('1' <= option && option <= '5')) return ;
     FILE *fp;
     string path = "static\\save\\";
@@ -33,6 +34,7 @@ void writeFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char 
 
 void readFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char option)
 {
+    //读档
     if(!('1' <= option && option <= '5')) return ;
     FILE *fp;
     string path = "static\\save\\";
@@ -81,6 +83,7 @@ void readFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char o
 
 void optionWriteFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
 {
+    //存档选择
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
     setcolor(WHITE);                       //字体颜色
@@ -135,6 +138,7 @@ void optionWriteFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
 }
 int optionReadFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap)
 {
+    //读档选择
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
     setcolor(WHITE);                       //字体颜色

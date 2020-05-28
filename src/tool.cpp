@@ -3,6 +3,7 @@
 
 void tool::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
+    //获得道具
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     setcolor(WHITE);                       //字体颜色
     setfont(16, 0, "黑体");                //文字高度16像素，宽度自适应，字体类型

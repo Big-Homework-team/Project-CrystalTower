@@ -3,6 +3,7 @@
 
 void prop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
+    //获得道具
     int id = theBigMap.getPoint(destination);
     if(id == 15)
     {

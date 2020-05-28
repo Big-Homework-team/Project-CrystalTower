@@ -2,6 +2,7 @@
 
 void wall::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
+    //机关墙事件
     int id = theBigMap.getPoint(destination);
     if(id == 2 && usefulTools.getUsingDraft() == 1)
     {

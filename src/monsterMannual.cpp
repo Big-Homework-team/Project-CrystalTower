@@ -4,6 +4,7 @@ using namespace std;
 
 void useMonsterMannual(theBrave aStrongBrave, map theBigMap, monster bigMonster[], picture pic)
 {
+    //怪物手册 UI
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
     setcolor(WHITE);                       //字体颜色

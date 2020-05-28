@@ -3,6 +3,7 @@
 
 void key::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
+    //捡到钥匙
     int id = theBigMap.getPoint(destination);
     if(id == 31)
     {
