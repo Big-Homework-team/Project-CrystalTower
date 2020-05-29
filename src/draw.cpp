@@ -115,7 +115,12 @@ void drawMap(theBrave aStrongBrave, map theBigMap, picture pic) {
             putimage(i * 32 + OriginX, j * 32 + OriginY, pic.block[theBigMap.getPoint(point(thePosition.getFloor(), i, j))]);
         }
     }
-    putimage(thePosition.getX() * 32 + OriginX, thePosition.getY() * 32 + OriginY, pic.block[1]);
+    int id; //根据勇者面向决定图片 id
+    if(aStrongBrave.getFace() == 0) id = 1;
+    if(aStrongBrave.getFace() == 1) id = 48;
+    if(aStrongBrave.getFace() == 2) id = 49;
+    if(aStrongBrave.getFace() == 3) id = 50;
+    putimage(thePosition.getX() * 32 + OriginX, thePosition.getY() * 32 + OriginY, pic.block[id]);
 }
 
 
