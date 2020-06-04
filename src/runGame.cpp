@@ -28,9 +28,10 @@ void runGame::initialize(picture &pic)
 
 void runGame::run()
 {
-	MUSIC music;
-	music.OpenFile("static\\music\\what for.mp3");
-	music.Play(0);//播放BGM
+	MUSIC music1, music2;
+	music1.OpenFile("static\\music\\what for.mp3");
+	music1.Play(0);//播放BGM
+	music2.OpenFile("static\\music\\祖堅正慶 - 影をもたらす者 ～ハーデス前哨戦～.mp3");
 
 	theBrave initaStrongBrave;
 	tools initusefulTools;
@@ -82,7 +83,8 @@ void runGame::run()
     initialize(pic); //图形界面初始化
 	int choice = 0;
 	for(;is_run(); delay_fps(60)) {
-		if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
+		if(music2.GetPlayStatus() != MUSIC_MODE_STOP) music2.Stop();
+		if(music1.GetPlayStatus() == MUSIC_MODE_STOP) music1.Play(0);
 		createMenu();
 		createChoice(choice);
 		char menuAction = '.';
@@ -99,7 +101,16 @@ void runGame::run()
 				draw(aStrongBrave, usefulTools, theBigMap, pic); //绘制图形界面
 				for(;is_run(); delay_fps(60))
 				{
-					if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
+					if(aStrongBrave.getPosition().getFloor() == 5)
+					{
+						if(music1.GetPlayStatus() != MUSIC_MODE_STOP) music1.Stop();
+						if(music2.GetPlayStatus() == MUSIC_MODE_STOP) music2.Play(0);
+					}
+					else
+					{
+						if(music2.GetPlayStatus() != MUSIC_MODE_STOP) music2.Stop();
+						if(music1.GetPlayStatus() == MUSIC_MODE_STOP) music1.Play(0);
+					}
 					char action = '.';
 					//if(kbhit()) 
 					action = getch();
@@ -123,7 +134,16 @@ void runGame::run()
 				draw(aStrongBrave, usefulTools, theBigMap, pic); //绘制图形界面
 				for(;is_run(); delay_fps(60))
 				{
-					if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
+					if(aStrongBrave.getPosition().getFloor() == 5)
+					{
+						if(music1.GetPlayStatus() != MUSIC_MODE_STOP) music1.Stop();
+						if(music2.GetPlayStatus() == MUSIC_MODE_STOP) music2.Play(0);
+					}
+					else
+					{
+						if(music2.GetPlayStatus() != MUSIC_MODE_STOP) music2.Stop();
+						if(music1.GetPlayStatus() == MUSIC_MODE_STOP) music1.Play(0);
+					}
 					char action = '.';
 					//if(kbhit()) 
 					action = getch();
