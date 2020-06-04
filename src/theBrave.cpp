@@ -20,4 +20,6 @@ theBrave::theBrave()
     position.setFloor(initialFloor);
     position.setX(initialX);
     position.setY(initialY);
+
+    isTakeBossEvent = 0;
 }

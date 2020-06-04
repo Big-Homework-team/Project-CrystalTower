@@ -14,7 +14,7 @@ object *distinguishObject(int id) //处理事件
     else if(id == 41) newObject = new theElderly; //老人
     else if(id == 42) newObject = new shop; //商店
     else if(51 <= id && id <= 80) newObject = new handleMonster; //怪物
-    else if(id == 81) newObject = new boss; //boss
+    else if(id == 82) newObject = new boss; //boss
     else newObject = new wall; //没找到就返回墙
     return newObject;
 }

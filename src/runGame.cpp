@@ -5,6 +5,7 @@
 #include "monster.h"
 #include "menu.h"
 #include "file.h"
+#include "event.h"
 
 void runGame::initialize(picture &pic)
 {
@@ -110,6 +111,11 @@ void runGame::run()
 					{
 						if(music2.GetPlayStatus() != MUSIC_MODE_STOP) music2.Stop();
 						if(music1.GetPlayStatus() == MUSIC_MODE_STOP) music1.Play(0);
+					}
+					if(aStrongBrave.getPosition().getFloor() == 5 && aStrongBrave.getIsTakeBossEvent() == 0) //触发剧情1
+					{
+						takeBossEvent(aStrongBrave, usefulTools, theBigMap, bigMonster, pic);
+						aStrongBrave.setIsTakeBossEvent(1);
 					}
 					char action = '.';
 					//if(kbhit()) 
