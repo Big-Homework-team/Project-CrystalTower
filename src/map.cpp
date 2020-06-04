@@ -1,5 +1,6 @@
 #include <map.h>
 
+//初始地图
 const int initialMap[high][length][width] = 
 {
     5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, //0层
@@ -76,19 +77,19 @@ const int initialMap[high][length][width] =
     42, 0, 53, 0, 10, 53, 0, 16, 2, 0, 2, 2, 10, 
     44, 17, 2, 0, 2, 0, 17, 0, 2, 0, 2, 15, 16, 
 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, //5层
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, //5层
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 81, 84, 87, 6, 6, 6, 6, 6, 
+    0, 0, 0, 0, 0, 82, 85, 88, 0, 91, 0, 0, 0, 
+    6, 6, 6, 6, 6, 83, 86, 89, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 
 };
 
 #include <iostream>
@@ -101,7 +102,7 @@ map::map()
                 theMap[floor][x][y] = initialMap[floor][x][y];
 }
 
-bool map::checkPoint(point position)
+bool map::checkPoint(point position) //判断出界
 {
     int floor = position.getFloor();
     int x = position.getX();
@@ -111,7 +112,7 @@ bool map::checkPoint(point position)
            && 0 <= y && y < width;
 }
 
-int map::getPoint(point position)
+int map::getPoint(point position) //获取点信息
 {
     int floor = position.getFloor();
     int x = position.getX();
@@ -121,7 +122,7 @@ int map::getPoint(point position)
     return 0;
 }
 
-void map::setPoint(point position, int val)
+void map::setPoint(point position, int val) //设置点信息
 {
     int floor = position.getFloor();
     int x = position.getX();

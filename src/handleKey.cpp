@@ -14,6 +14,7 @@ void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBig
     destination = position = aStrongBrave.getPosition();
     if(action == 'u')
     {
+        //使用稿子
         if(usefulTools.getDraft() == 1)
         {
             usefulTools.setUsingDraft(1);
@@ -72,10 +73,12 @@ void handle(char action, theBrave &aStrongBrave, tools &usefulTools, map &theBig
     }
     else if(action == 'a' || action == 37 || action == 'd' || action == 39 || action == 'w' || action == 38 || action == 's' || action == 40)
     {
-        if(action == 'a' || action == 37) destination.setX(position.getX() - 1);
-        if(action == 'd' || action == 39) destination.setX(position.getX() + 1);
-        if(action == 'w' || action == 38) destination.setY(position.getY() - 1);
-        if(action == 's' || action == 40) destination.setY(position.getY() + 1);
+        //处理上下移动触发的事件
+        if(action == 'a' || action == 37) destination.setX(position.getX() - 1), aStrongBrave.setFace(2);
+        if(action == 'd' || action == 39) destination.setX(position.getX() + 1), aStrongBrave.setFace(3);
+        if(action == 'w' || action == 38) destination.setY(position.getY() - 1), aStrongBrave.setFace(1);
+        if(action == 's' || action == 40) destination.setY(position.getY() + 1), aStrongBrave.setFace(0);
+    	draw(aStrongBrave, usefulTools, theBigMap, pic);
         if(!theBigMap.checkPoint(destination)) return ;
         object *newObject = distinguishObject(theBigMap.getPoint(destination)); //根据 ID 获取相应的派生类指针
         newObject->takeEvent(destination, aStrongBrave, usefulTools, theBigMap, bigMonster, pic);

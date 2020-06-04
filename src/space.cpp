@@ -3,6 +3,7 @@
 
 void space::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
+    //触发空地事件
     int id = theBigMap.getPoint(destination);
     if (id == 0){
         if (theBigMap.getPoint(point(2, 8, 11)) == 7 && theBigMap.getPoint(point(2, 6, 4)) == 13)

@@ -4,6 +4,6 @@
 int main()
 {
 	runGame game;
-	game.run();
+	game.run(); //运行游戏
     return 0;
 }

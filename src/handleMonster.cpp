@@ -2,10 +2,10 @@
 #include "monster.h"
 #include "draw.h"
 
-int tim = 300;
 
 void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
+    int tim = 300;
     int id=theBigMap.getPoint(destination);
 
     MUSIC se;
@@ -71,15 +71,20 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
         return ;//没打过
     }
     tim = 300;
-    if(id == 53) 
-    se.OpenFile("static\\se\\蝙蝠.mp3"),
-    se.Play(0),
-    healthPoint -= defence, //小蝙蝠先手
-    putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]),
-    drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic),
-    delay_ms(tim),
-    putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[1]);
-
+    if(id == 53) {
+        se.OpenFile("static\\se\\蝙蝠.mp3");
+        se.Play(0);
+        healthPoint -= defence; //小蝙蝠先手
+        putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]);
+        drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic);
+        delay_ms(tim);
+        int id; //根据勇者面向决定图片 id
+        if(aStrongBrave.getFace() == 0) id = 1;
+        if(aStrongBrave.getFace() == 1) id = 48;
+        if(aStrongBrave.getFace() == 2) id = 49;
+        if(aStrongBrave.getFace() == 3) id = 50;
+        putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[id]);
+    }
     while(healthPoint>0 && monsterHealth>0) { 
 	    if(usefulTools.getWeapon()) se.OpenFile("static\\se\\剑击.mp3");
         else se.OpenFile("static\\se\\空手.mp3");
@@ -103,7 +108,16 @@ void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &
         if(tim) putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[93]);
         drawMonsterImformation(aStrongBrave, id, nowMonster.getName(), healthPoint, monsterHealth, nowMonster.getAttack(), nowMonster.getDefence(), pic);
         if(tim) delay_ms(tim);
-        if(tim) putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[1]);
+        if(tim)
+        {
+            int id; //根据勇者面向决定图片 id
+            if(aStrongBrave.getFace() == 0) id = 1;
+            if(aStrongBrave.getFace() == 1) id = 48;
+            if(aStrongBrave.getFace() == 2) id = 49;
+            if(aStrongBrave.getFace() == 3) id = 50;
+            putimage(5 * 32 + 32 * aStrongBrave.getPosition().getX(), 32 * aStrongBrave.getPosition().getY(), pic.block[id]);
+        }
+         
         if(healthPoint<=0) break;
 
         if(kbhit() || keystate(VK_UP) || keystate(VK_DOWN) || keystate(VK_LEFT) || keystate(VK_RIGHT) || keystate('w') || keystate('s') || keystate('a') || keystate('d'))

@@ -3,6 +3,7 @@
 
 void theElderly::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
+    //老人事件
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     bar(5 * 32, 9 * 32, 18 * 32, 14 * 32); //绘制矩形作为背景
     setcolor(WHITE);                       //字体颜色

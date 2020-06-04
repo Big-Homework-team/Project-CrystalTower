@@ -6,7 +6,6 @@
 void drawMonsterImformation(theBrave aStrongBrave, int id, string name, int healthPoint, int monsterHealth, int attack, int defence, picture pic)
 {
     if(monsterHealth < 0) monsterHealth = 0;
-    putimage(640, 248, pic.block[id]);
     setcolor(WHITE);                       //字体颜色
 	setfont(16, 0, "黑体");
     //left
@@ -30,7 +29,9 @@ void drawMonsterImformation(theBrave aStrongBrave, int id, string name, int heal
     putimage(688, 8* 32 - 16, pic.block[0]);
     putimage(688, 8* 32 + 16, pic.block[0]);
 
-    putimage(640, 240, pic.block[id]);
+    if(id == 82) putimage(640, 240, pic.block[90]); //boss小贴图
+    else putimage(640, 240, pic.block[id]);
+    
     for(int i = 592 + 32; i <= 688; i += 32) {//怪物信息2
         for(int j = 9 * 32; j <= 9 * 32 + 64; j += 32) {
             putimage(i, j, pic.block[0]);
@@ -115,7 +116,12 @@ void drawMap(theBrave aStrongBrave, map theBigMap, picture pic) {
             putimage(i * 32 + OriginX, j * 32 + OriginY, pic.block[theBigMap.getPoint(point(thePosition.getFloor(), i, j))]);
         }
     }
-    putimage(thePosition.getX() * 32 + OriginX, thePosition.getY() * 32 + OriginY, pic.block[1]);
+    int id; //根据勇者面向决定图片 id
+    if(aStrongBrave.getFace() == 0) id = 1;
+    if(aStrongBrave.getFace() == 1) id = 48;
+    if(aStrongBrave.getFace() == 2) id = 49;
+    if(aStrongBrave.getFace() == 3) id = 50;
+    putimage(thePosition.getX() * 32 + OriginX, thePosition.getY() * 32 + OriginY, pic.block[id]);
 }
 
 

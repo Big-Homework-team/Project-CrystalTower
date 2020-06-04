@@ -7,6 +7,7 @@ const int initialX = 6;
 const int initialY = 12;
 const int initialFloor = 0;
 const int initialTimes = 1;
+const int initialFace = 0;
 
 theBrave::theBrave()
 {
@@ -14,8 +15,11 @@ theBrave::theBrave()
     defence = initialDefence;
     attack = initialAttack;
     times = initialTimes;
+    face = initialFace;
 
     position.setFloor(initialFloor);
     position.setX(initialX);
     position.setY(initialY);
+
+    isTakeBossEvent = 0;
 }

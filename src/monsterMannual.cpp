@@ -4,6 +4,7 @@ using namespace std;
 
 void useMonsterMannual(theBrave aStrongBrave, map theBigMap, monster bigMonster[], picture pic)
 {
+    //怪物手册 UI
     setfillcolor(DARKGRAY);                //设置背景填充色为深灰
     bar(5 * 32, 0 * 32, 18 * 32, 13 * 32); //绘制矩形作为背景
     setcolor(WHITE);                       //字体颜色
@@ -20,7 +21,7 @@ void useMonsterMannual(theBrave aStrongBrave, map theBigMap, monster bigMonster[
         for(int y = 0; y < 13; y ++)
         {
             int id = theBigMap.getPoint(point(aStrongBrave.getPosition().getFloor(), x, y));
-            if(51 <= id && id <= 81 && vis[id] == 0)
+            if(51 <= id && id <= 82 && id != 81 && vis[id] == 0)
             {
                 vis[id] = 1;
                 have[++ num] = id;
@@ -58,6 +59,7 @@ void useMonsterMannual(theBrave aStrongBrave, map theBigMap, monster bigMonster[
 
         int det = (i >= 4);
 
+        if(id == 82) id = 90; //更换为小贴图
         consume = "消耗" + consume;
         putimage(5 * 32 + det * 32 * 8, (0 + 3 * ((i - 1) % 3)) * 32, pic.block[id]); // 怪物贴图
         putimage(8 * 32 + det * 32 * 8, (0 + 3 * ((i - 1) % 3)) * 32, pic.block[94]); // 三合一贴图

@@ -5,6 +5,7 @@
 #include "monster.h"
 #include "menu.h"
 #include "file.h"
+#include "event.h"
 
 void runGame::initialize(picture &pic)
 {
@@ -28,9 +29,10 @@ void runGame::initialize(picture &pic)
 
 void runGame::run()
 {
-	MUSIC music;
-	music.OpenFile("static\\music\\what for.mp3");
-	music.Play(0);//播放BGM
+	MUSIC music1, music2;
+	music1.OpenFile("static\\music\\what for.mp3");
+	music1.Play(0);//播放BGM
+	music2.OpenFile("static\\music\\祖堅正慶 - 影をもたらす者 ～ハーデス前哨戦～.mp3");
 
 	theBrave initaStrongBrave;
 	tools initusefulTools;
@@ -73,16 +75,17 @@ void runGame::run()
     bigMonster[56].setMoney(5);
     bigMonster[56].setName("骷髅人");
 
-	bigMonster[82].setHealthPoint(2333);
-    bigMonster[82].setAttack(150);
-    bigMonster[82].setDefence(150);
+	bigMonster[82].setHealthPoint(233);
+    bigMonster[82].setAttack(15);
+    bigMonster[82].setDefence(15);
     bigMonster[82].setMoney(0);
     bigMonster[82].setName("哈迪斯");
 	picture pic;
     initialize(pic); //图形界面初始化
 	int choice = 0;
 	for(;is_run(); delay_fps(60)) {
-		if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
+		if(music2.GetPlayStatus() != MUSIC_MODE_STOP) music2.Stop();
+		if(music1.GetPlayStatus() == MUSIC_MODE_STOP) music1.Play(0);
 		createMenu();
 		createChoice(choice);
 		char menuAction = '.';
@@ -99,7 +102,21 @@ void runGame::run()
 				draw(aStrongBrave, usefulTools, theBigMap, pic); //绘制图形界面
 				for(;is_run(); delay_fps(60))
 				{
-					if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
+					if(aStrongBrave.getPosition().getFloor() == 5)
+					{
+						if(music1.GetPlayStatus() != MUSIC_MODE_STOP) music1.Stop();
+						if(music2.GetPlayStatus() == MUSIC_MODE_STOP) music2.Play(0);
+					}
+					else
+					{
+						if(music2.GetPlayStatus() != MUSIC_MODE_STOP) music2.Stop();
+						if(music1.GetPlayStatus() == MUSIC_MODE_STOP) music1.Play(0);
+					}
+					if(aStrongBrave.getPosition().getFloor() == 5 && aStrongBrave.getIsTakeBossEvent() == 0) //触发剧情1
+					{
+						takeBossEvent(aStrongBrave, usefulTools, theBigMap, bigMonster, pic);
+						aStrongBrave.setIsTakeBossEvent(1);
+					}
 					char action = '.';
 					//if(kbhit()) 
 					action = getch();
@@ -110,6 +127,13 @@ void runGame::run()
 					}
         			handle(action, aStrongBrave, usefulTools, theBigMap, bigMonster, pic); //处理按键
     				draw(aStrongBrave, usefulTools, theBigMap, pic);
+					if(theBigMap.getPoint(point(5, 6, 6)) == 0)
+					{
+						//游戏结束
+						//播放制作人员名单
+						CreateMenu();
+						break ; //结束游戏.
+					}
 				}
 				
 			}
@@ -123,7 +147,21 @@ void runGame::run()
 				draw(aStrongBrave, usefulTools, theBigMap, pic); //绘制图形界面
 				for(;is_run(); delay_fps(60))
 				{
-					if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
+					if(aStrongBrave.getPosition().getFloor() == 5)
+					{
+						if(music1.GetPlayStatus() != MUSIC_MODE_STOP) music1.Stop();
+						if(music2.GetPlayStatus() == MUSIC_MODE_STOP) music2.Play(0);
+					}
+					else
+					{
+						if(music2.GetPlayStatus() != MUSIC_MODE_STOP) music2.Stop();
+						if(music1.GetPlayStatus() == MUSIC_MODE_STOP) music1.Play(0);
+					}
+					if(aStrongBrave.getPosition().getFloor() == 5 && aStrongBrave.getIsTakeBossEvent() == 0) //触发剧情1
+					{
+						takeBossEvent(aStrongBrave, usefulTools, theBigMap, bigMonster, pic);
+						aStrongBrave.setIsTakeBossEvent(1);
+					}
 					char action = '.';
 					//if(kbhit()) 
 					action = getch();
@@ -134,10 +172,17 @@ void runGame::run()
 					}
         			handle(action, aStrongBrave, usefulTools, theBigMap, bigMonster, pic); //处理按键
     				draw(aStrongBrave, usefulTools, theBigMap, pic);
+					if(theBigMap.getPoint(point(5, 6, 6)) == 0)
+					{
+						//游戏结束
+						//播放制作人员名单
+						CreateMenu();
+						break ; //结束游戏.
+					}
 				}
 			}
 			if(choice == 2) {
-				
+				//播放制作人员名单
 			}
 			if(choice == 3) {
 				return;

@@ -4,6 +4,7 @@
 
 void shop::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
+    //商店 UI
     MUSIC se;
     se.OpenFile("static\\se\\商店.mp3");
 

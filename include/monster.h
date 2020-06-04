@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-class monster
+class monster //怪物类
 {
 private:
     int healthPoint, defence, attack;
