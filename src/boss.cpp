@@ -65,6 +65,7 @@ void boss::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
     tim = 300;
     aStrongBrave.setHealthPoint(healthPoint);
 
+
     //触发剧情2
 
     //清空boss贴图
