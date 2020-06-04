@@ -75,9 +75,9 @@ void runGame::run()
     bigMonster[56].setMoney(5);
     bigMonster[56].setName("骷髅人");
 
-	bigMonster[82].setHealthPoint(2333);
-    bigMonster[82].setAttack(150);
-    bigMonster[82].setDefence(150);
+	bigMonster[82].setHealthPoint(233);
+    bigMonster[82].setAttack(15);
+    bigMonster[82].setDefence(15);
     bigMonster[82].setMoney(0);
     bigMonster[82].setName("哈迪斯");
 	picture pic;
@@ -127,6 +127,13 @@ void runGame::run()
 					}
         			handle(action, aStrongBrave, usefulTools, theBigMap, bigMonster, pic); //处理按键
     				draw(aStrongBrave, usefulTools, theBigMap, pic);
+					if(theBigMap.getPoint(point(5, 6, 6)) == 0)
+					{
+						//游戏结束
+						//播放制作人员名单
+						CreateMenu();
+						break ; //结束游戏.
+					}
 				}
 				
 			}
@@ -150,6 +157,11 @@ void runGame::run()
 						if(music2.GetPlayStatus() != MUSIC_MODE_STOP) music2.Stop();
 						if(music1.GetPlayStatus() == MUSIC_MODE_STOP) music1.Play(0);
 					}
+					if(aStrongBrave.getPosition().getFloor() == 5 && aStrongBrave.getIsTakeBossEvent() == 0) //触发剧情1
+					{
+						takeBossEvent(aStrongBrave, usefulTools, theBigMap, bigMonster, pic);
+						aStrongBrave.setIsTakeBossEvent(1);
+					}
 					char action = '.';
 					//if(kbhit()) 
 					action = getch();
@@ -160,10 +172,17 @@ void runGame::run()
 					}
         			handle(action, aStrongBrave, usefulTools, theBigMap, bigMonster, pic); //处理按键
     				draw(aStrongBrave, usefulTools, theBigMap, pic);
+					if(theBigMap.getPoint(point(5, 6, 6)) == 0)
+					{
+						//游戏结束
+						//播放制作人员名单
+						CreateMenu();
+						break ; //结束游戏.
+					}
 				}
 			}
 			if(choice == 2) {
-				
+				//播放制作人员名单
 			}
 			if(choice == 3) {
 				return;

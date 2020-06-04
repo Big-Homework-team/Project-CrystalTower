@@ -2,10 +2,10 @@
 #include "monster.h"
 #include "draw.h"
 
-int tim = 300;
 
 void handleMonster::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic)
 {
+    int tim = 300;
     int id=theBigMap.getPoint(destination);
 
     MUSIC se;
