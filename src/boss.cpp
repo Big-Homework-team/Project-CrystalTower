@@ -67,6 +67,20 @@ void boss::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
 
 
     //触发剧情2
+    char action = '.';
+    setfillcolor(DARKGRAY);                //设置背景填充色为深灰
+    setcolor(WHITE);                       //字体颜色
+    setfont(16, 0, "黑体");                //文字高度16像素，宽度自适应，字体类型
+    setbkmode(TRANSPARENT);                //字体背景色块调为透明
+
+
+    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
+    outtextxy(5 * 32, 9 * 32 + 0 * 16, "哈迪斯：");
+    outtextxy(5 * 32, 9 * 32 + 1 * 16, "怎么可能、不过是弱小的人类……");
+    outtextxy(5 * 32, 9 * 32 + 2 * 16, "");
+    outtextxy(5 * 32, 9 * 32 + 3 * 16, "");
+    while(action != ' ') action = getch();
+    action = '.';
 
     //清空boss贴图
     theBigMap.setPoint(destination,0);
@@ -89,4 +103,44 @@ void boss::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
     draw(aStrongBrave, usefulTools, theBigMap, pic);
 
     //触发剧情3
+    
+    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
+    outtextxy(5 * 32, 9 * 32 + 0 * 16, "你：");
+    outtextxy(5 * 32, 9 * 32 + 1 * 16, "公主殿下，您还好吗。");
+    outtextxy(5 * 32, 9 * 32 + 2 * 16, "稍作休息后我便可以带着您回到王宫。");
+    outtextxy(5 * 32, 9 * 32 + 3 * 16, "");
+    while(action != ' ') action = getch();
+    action = '.';
+    
+    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
+    outtextxy(5 * 32, 9 * 32 + 0 * 16, "古拉哈提亚：");
+    outtextxy(5 * 32, 9 * 32 + 1 * 16, "感谢您，伟大的光之战士。");
+    outtextxy(5 * 32, 9 * 32 + 2 * 16, "");
+    outtextxy(5 * 32, 9 * 32 + 3 * 16, "");
+    while(action != ' ') action = getch();
+    action = '.';
+
+    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
+    outtextxy(5 * 32, 9 * 32 + 0 * 16, "古拉哈提亚：");
+    outtextxy(5 * 32, 9 * 32 + 1 * 16, "想必您与同伴的英雄事迹将成为艾欧泽亚不朽的传说，");
+    outtextxy(5 * 32, 9 * 32 + 2 * 16, "除了承诺与您的奖励，我也将请来异国的诗人为您作曲。");
+    outtextxy(5 * 32, 9 * 32 + 3 * 16, "");
+    while(action != ' ') action = getch();
+    action = '.';
+
+    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
+    outtextxy(5 * 32, 9 * 32 + 0 * 16, "古拉哈提亚：");
+    outtextxy(5 * 32, 9 * 32 + 1 * 16, "《英雄挽歌》");
+    outtextxy(5 * 32, 9 * 32 + 2 * 16, "这个名字您看如何呢。");
+    outtextxy(5 * 32, 9 * 32 + 3 * 16, "");
+    while(action != ' ') action = getch();
+    action = '.';
+
+    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
+    outtextxy(5 * 32, 9 * 32 + 0 * 16, "恭喜通关！");
+    outtextxy(5 * 32, 9 * 32 + 1 * 16, "感谢您的游玩");
+    outtextxy(5 * 32, 9 * 32 + 2 * 16, "");
+    outtextxy(5 * 32, 9 * 32 + 3 * 16, "");
+    while(action != ' ') action = getch();
+    action = '.';
 }
