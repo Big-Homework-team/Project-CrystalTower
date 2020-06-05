@@ -76,9 +76,9 @@ void runGame::run()
     bigMonster[56].setMoney(5);
     bigMonster[56].setName("骷髅人");
 
-	bigMonster[82].setHealthPoint(233);
-    bigMonster[82].setAttack(15);
-    bigMonster[82].setDefence(15);
+	bigMonster[82].setHealthPoint(2333);
+    bigMonster[82].setAttack(250);
+    bigMonster[82].setDefence(150);
     bigMonster[82].setMoney(0);
     bigMonster[82].setName("哈迪斯");
 	picture pic;
@@ -132,9 +132,16 @@ void runGame::run()
 					{
 						//游戏结束
 						//播放制作人员名单
+						
+						music1.Stop();
+						music2.Stop();
+						music2.OpenFile("static\\music\\上海アリス幻樂団 - Eternal Dream ～ 幽玄の槭樹.mp3");
+						music2.Play(0);
 						printCast();
+						music2.Stop();
+						music2.OpenFile("static\\music\\祖堅正慶 - 影をもたらす者 ～ハーデス前哨戦～.mp3");
 						CreateMenu();
-						break ; //结束游戏.
+						break;
 					}
 				}
 				
@@ -178,15 +185,29 @@ void runGame::run()
 					{
 						//游戏结束
 						//播放制作人员名单
+						music1.Stop();
+						music2.Stop();
+						music2.OpenFile("static\\music\\上海アリス幻樂団 - Eternal Dream ～ 幽玄の槭樹.mp3");
+						music2.Play(0);
 						printCast();
+						music2.Stop();
+						music2.OpenFile("static\\music\\祖堅正慶 - 影をもたらす者 ～ハーデス前哨戦～.mp3");
 						CreateMenu();
-						break ; //结束游戏.
+						break;
 					}
 				}
 			}
 			if(choice == 2) {
-				printCast();
+				
 				//播放制作人员名单
+				music1.Stop();
+				music2.Stop();
+				music2.OpenFile("static\\music\\上海アリス幻樂団 - Eternal Dream ～ 幽玄の槭樹.mp3");
+				music2.Play(0);
+				printCast();
+				music2.Stop();
+				music2.OpenFile("static\\music\\祖堅正慶 - 影をもたらす者 ～ハーデス前哨戦～.mp3");
+				CreateMenu();
 			}
 			if(choice == 3) {
 				return;
