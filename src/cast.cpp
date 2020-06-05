@@ -22,7 +22,7 @@ char title[5][100] = {
 char content[5][100] = {
     "           刘知源",
     "周雪妍     廖浩深     吴咏蔚",
-    "  《魔塔》  《最终幻想14》",
+    "《魔塔》《ff14》《东方永夜抄》",
     "          《魔塔》",
     "       《最终幻想14》"
 };
@@ -38,13 +38,14 @@ void createCast(int move) {
     }
 }
 
-void printCast() {
+void printCast(MUSIC &music) {
     setcolor(WHITE);
     int move = 0, allowExit = 0, p = 0;
     PIMAGE back = newimage();
     getimage(back, "static\\img\\castBack.png");
     putimage(0, 0, back);
     for(;is_run(); delay_fps(60)) {
+		if(music.GetPlayStatus() == MUSIC_MODE_STOP) music.Play(0);
         if(allowExit) {
             if(kbhit()) p = getch();
             if(p == key_esc) {

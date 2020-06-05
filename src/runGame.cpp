@@ -90,7 +90,6 @@ void runGame::run()
 		createMenu();
 		createChoice(choice);
 		char menuAction = '.';
-		//if(kbhit()) 
 		menuAction = getch();
 		if(menuAction == 'w' || menuAction == 38) choice = (choice - 1 + menuLength) % menuLength;
 		if(menuAction == 's' || menuAction == 40) choice = (choice + 1 + menuLength) % menuLength;
@@ -119,8 +118,8 @@ void runGame::run()
 						aStrongBrave.setIsTakeBossEvent(1);
 					}
 					char action = '.';
-					//if(kbhit()) 
-					action = getch();
+
+            		if(kbhit()) action = getch();
    	 				if(action == 27) //ESC 的键码是 27.
 					{
 						CreateMenu();
@@ -137,7 +136,7 @@ void runGame::run()
 						music2.Stop();
 						music2.OpenFile("static\\music\\上海アリス幻樂団 - Eternal Dream ～ 幽玄の槭樹.mp3");
 						music2.Play(0);
-						printCast();
+						printCast(music2);
 						music2.Stop();
 						music2.OpenFile("static\\music\\祖堅正慶 - 影をもたらす者 ～ハーデス前哨戦～.mp3");
 						CreateMenu();
@@ -172,8 +171,8 @@ void runGame::run()
 						aStrongBrave.setIsTakeBossEvent(1);
 					}
 					char action = '.';
-					//if(kbhit()) 
-					action = getch();
+					
+            		if(kbhit()) action = getch();
    	 				if(action == 27) //ESC 的键码是 27.
 					{
 						CreateMenu();
@@ -189,7 +188,7 @@ void runGame::run()
 						music2.Stop();
 						music2.OpenFile("static\\music\\上海アリス幻樂団 - Eternal Dream ～ 幽玄の槭樹.mp3");
 						music2.Play(0);
-						printCast();
+						printCast(music2);
 						music2.Stop();
 						music2.OpenFile("static\\music\\祖堅正慶 - 影をもたらす者 ～ハーデス前哨戦～.mp3");
 						CreateMenu();
@@ -204,7 +203,7 @@ void runGame::run()
 				music2.Stop();
 				music2.OpenFile("static\\music\\上海アリス幻樂団 - Eternal Dream ～ 幽玄の槭樹.mp3");
 				music2.Play(0);
-				printCast();
+				printCast(music2);
 				music2.Stop();
 				music2.OpenFile("static\\music\\祖堅正慶 - 影をもたらす者 ～ハーデス前哨戦～.mp3");
 				CreateMenu();
