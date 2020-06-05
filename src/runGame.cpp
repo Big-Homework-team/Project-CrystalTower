@@ -6,6 +6,7 @@
 #include "menu.h"
 #include "file.h"
 #include "event.h"
+#include "cast.h"
 
 void runGame::initialize(picture &pic)
 {
@@ -131,6 +132,7 @@ void runGame::run()
 					{
 						//游戏结束
 						//播放制作人员名单
+						printCast();
 						CreateMenu();
 						break ; //结束游戏.
 					}
@@ -176,12 +178,14 @@ void runGame::run()
 					{
 						//游戏结束
 						//播放制作人员名单
+						printCast();
 						CreateMenu();
 						break ; //结束游戏.
 					}
 				}
 			}
 			if(choice == 2) {
+				printCast();
 				//播放制作人员名单
 			}
 			if(choice == 3) {
