@@ -82,6 +82,16 @@ void boss::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
     while(action != ' ') action = getch();
     action = '.';
 
+    //消召唤阵
+    theBigMap.setPoint(point(5, 6, 0), 0);
+    theBigMap.setPoint(point(5, 4, 1), 6);
+    theBigMap.setPoint(point(5, 4, 3), 6);
+    theBigMap.setPoint(point(5, 5, 4), 6);
+    theBigMap.setPoint(point(5, 7, 4), 6);
+    theBigMap.setPoint(point(5, 8, 3), 6);
+    theBigMap.setPoint(point(5, 8, 1), 6);
+    draw(aStrongBrave, usefulTools, theBigMap, pic);
+
     //清空boss贴图
     theBigMap.setPoint(destination,0);
     destination.setY(destination.getY() + 1);
@@ -101,46 +111,4 @@ void boss::takeEvent(point destination, theBrave &aStrongBrave, tools &usefulToo
     destination.setY(destination.getY() + 1);
     theBigMap.setPoint(destination,6);
     draw(aStrongBrave, usefulTools, theBigMap, pic);
-
-    //触发剧情3
-    
-    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
-    outtextxy(5 * 32, 9 * 32 + 0 * 16, "你：");
-    outtextxy(5 * 32, 9 * 32 + 1 * 16, "公主殿下，您还好吗。");
-    outtextxy(5 * 32, 9 * 32 + 2 * 16, "稍作休息后我便可以带着您回到王宫。");
-    outtextxy(5 * 32, 9 * 32 + 3 * 16, "");
-    while(action != ' ') action = getch();
-    action = '.';
-    
-    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
-    outtextxy(5 * 32, 9 * 32 + 0 * 16, "古拉哈提亚：");
-    outtextxy(5 * 32, 9 * 32 + 1 * 16, "感谢您，伟大的光之战士。");
-    outtextxy(5 * 32, 9 * 32 + 2 * 16, "");
-    outtextxy(5 * 32, 9 * 32 + 3 * 16, "");
-    while(action != ' ') action = getch();
-    action = '.';
-
-    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
-    outtextxy(5 * 32, 9 * 32 + 0 * 16, "古拉哈提亚：");
-    outtextxy(5 * 32, 9 * 32 + 1 * 16, "想必您与同伴的英雄事迹将成为艾欧泽亚不朽的传说，");
-    outtextxy(5 * 32, 9 * 32 + 2 * 16, "除了承诺与您的奖励，我也将请来异国的诗人为您作曲。");
-    outtextxy(5 * 32, 9 * 32 + 3 * 16, "");
-    while(action != ' ') action = getch();
-    action = '.';
-
-    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
-    outtextxy(5 * 32, 9 * 32 + 0 * 16, "古拉哈提亚：");
-    outtextxy(5 * 32, 9 * 32 + 1 * 16, "《英雄挽歌》");
-    outtextxy(5 * 32, 9 * 32 + 2 * 16, "这个名字您看如何呢。");
-    outtextxy(5 * 32, 9 * 32 + 3 * 16, "");
-    while(action != ' ') action = getch();
-    action = '.';
-
-    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
-    outtextxy(5 * 32, 9 * 32 + 0 * 16, "恭喜通关！");
-    outtextxy(5 * 32, 9 * 32 + 1 * 16, "感谢您的游玩");
-    outtextxy(5 * 32, 9 * 32 + 2 * 16, "");
-    outtextxy(5 * 32, 9 * 32 + 3 * 16, "");
-    while(action != ' ') action = getch();
-    action = '.';
 }

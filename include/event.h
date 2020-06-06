@@ -7,3 +7,5 @@
 #include "picture.h"
 
 void takeBossEvent(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, monster bigMonster[], picture pic);
+
+void happyEnding();

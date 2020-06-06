@@ -31,6 +31,19 @@ void theElderly::takeEvent(point destination, theBrave &aStrongBrave, tools &use
     {
         action = getch();
     }
+
+    bar(5 * 32, 9 * 32, 18 * 32, 14 * 32);
+    outtextxy(5 * 32, 9 * 32 + 0 * 16, "老者：");
+    outtextxy(5 * 32, 9 * 32 + 1 * 16, "此外，");
+    outtextxy(5 * 32, 9 * 32 + 2 * 16, "与不同的怪物战斗难免遇到耗时较久的战斗，");
+    outtextxy(5 * 32, 9 * 32 + 3 * 16, "来自东方的神秘力量可以将这数十秒减去，");
+    outtextxy(5 * 32, 9 * 32 + 4 * 16, "按 SPACE 可跳过战斗。");
+    action = '.';
+    while (action != 32)
+    {
+        action = getch();
+    }
+
     MUSIC se;
     se.OpenFile("static\\se\\获得道具.mp3");
     se.Play(0);
