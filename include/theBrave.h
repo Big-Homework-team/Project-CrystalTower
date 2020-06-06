@@ -5,8 +5,8 @@ class theBrave //勇者数据
 {
 private:
     int healthPoint, defence, attack, times;
-    int face; //面向，下为0，上为1，左为2，右为3
     point position;
+    int face; //面向，下为0，上为1，左为2，右为3
     int isTakeBossEvent;
 
 public:

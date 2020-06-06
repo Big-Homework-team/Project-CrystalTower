@@ -13,6 +13,7 @@ void writeFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char 
 
     fprintf(fp, "%d %d %d %d\n", aStrongBrave.getHealthPoint(), aStrongBrave.getDefence(), aStrongBrave.getAttack(), aStrongBrave.getTimes());
     fprintf(fp, "%d %d %d\n", aStrongBrave.getPosition().getFloor(), aStrongBrave.getPosition().getX(), aStrongBrave.getPosition().getY());
+    fprintf(fp, "%d %d\n", aStrongBrave.getFace(), aStrongBrave.getIsTakeBossEvent());
 
     fprintf(fp, "%d %d %d %d %d %d\n", usefulTools.getYellowKey(), usefulTools.getBlueKey(), usefulTools.getRedKey(), usefulTools.getMoney(), usefulTools.getWeapon(), usefulTools.getArmor());
     fprintf(fp, "%d %d %d %d %d\n", usefulTools.getDraft(), usefulTools.getTransmitter(), usefulTools.getBoom(), usefulTools.getMonsterManual(), usefulTools.getUsingDraft());
@@ -45,13 +46,18 @@ void readFile(theBrave &aStrongBrave, tools &usefulTools, map &theBigMap, char o
 
     int healthPoint, defence, attack, times;
     int floor, x, y; point position;
+    int face, isTakeBossEvent;
     fscanf(fp, "%d%d%d%d", &healthPoint, &defence, &attack, &times);
     fscanf(fp, "%d%d%d", &floor, &x, &y); position = point(floor, x, y);
+    fscanf(fp, "%d%d", &face, &isTakeBossEvent);
+
     aStrongBrave.setHealthPoint(healthPoint);
     aStrongBrave.setDefence(defence);
     aStrongBrave.setAttack(attack);
     aStrongBrave.setTimes(times);
     aStrongBrave.setPosition(position);
+    aStrongBrave.setFace(face);
+    aStrongBrave.setIsTakeBossEvent(isTakeBossEvent);
 
     int yellowKey, blueKey, redKey, money, weapon, armor;
     int draft, transmitter, boom, monsterManual, usingDraft;
