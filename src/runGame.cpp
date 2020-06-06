@@ -6,6 +6,7 @@
 #include "menu.h"
 #include "file.h"
 #include "event.h"
+#include "map.h"
 #include "cast.h"
 
 void runGame::initialize(picture &pic)
@@ -104,19 +105,23 @@ void runGame::run()
 				{
 					if(aStrongBrave.getPosition().getFloor() == 5)
 					{
+						if(aStrongBrave.getIsTakeBossEvent() == 0) {
 						if(music1.GetPlayStatus() != MUSIC_MODE_STOP) music1.Stop();
 						if(music2.GetPlayStatus() == MUSIC_MODE_STOP) music2.Play(0);
+						}
 					}
 					else
 					{
 						if(music2.GetPlayStatus() != MUSIC_MODE_STOP) music2.Stop();
 						if(music1.GetPlayStatus() == MUSIC_MODE_STOP) music1.Play(0);
 					}
+
 					if(aStrongBrave.getPosition().getFloor() == 5 && aStrongBrave.getIsTakeBossEvent() == 0) //触发剧情1
 					{
 						takeBossEvent(aStrongBrave, usefulTools, theBigMap, bigMonster, pic);
 						aStrongBrave.setIsTakeBossEvent(1);
 					}
+			
 					char action = '.';
 
             		if(kbhit()) action = getch();
@@ -182,9 +187,13 @@ void runGame::run()
     				draw(aStrongBrave, usefulTools, theBigMap, pic);
 					if(theBigMap.getPoint(point(5, 6, 6)) == 0)
 					{
+						music1.Stop();
+						music2.Stop();
+						music2.OpenFile("static\\music\\祖堅正慶 - 彩られし山麓～高地ドラヴァニア.mp3");
+						music2.Play(0);
+						happyEnding();
 						//游戏结束
 						//播放制作人员名单
-						music1.Stop();
 						music2.Stop();
 						music2.OpenFile("static\\music\\上海アリス幻樂団 - Eternal Dream ～ 幽玄の槭樹.mp3");
 						music2.Play(0);
